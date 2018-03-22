@@ -1,0 +1,31 @@
+.mock {
+    width: 300px;
+    height: 300px;
+    background-color: blueviolet;
+}
+
+.content {
+    padding: 10px;
+}
+
+/* Content cards styles */
+#auth_card {
+    width: 50%;
+    margin-top: 10px;
+}
+
+#presentation_card {
+    float:left;
+    width: 30%;
+    margin-right: 10px;
+}
+
+#card_img {
+        object-fit: cover;
+        height: 200px;
+}
+
+#footer {
+    bottom: 0px;
+    width: 100%;
+}
