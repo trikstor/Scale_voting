@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Создать новый опрос";
+}
+<script language="javascript">
+    var options = new Array();
+    function addOption() {
+        $('#options')
+            .append('<li class="list-group-item">' + $('input[name=optionText]').val() + '</li>');
+        options.push($('input[name=optionText]').val());
+    }
+
+    function submit() {
+        $.post("/ControlPanel",
+            {
+                'title': $('input[name=title]').val(),
+                'content': $('input[name=content]').val(),
+                'options[]': options
+            },
+            function(result) {
+                if(result)
+                {
+                    location.replace('/ControlPanel');
+                }
+            }
+        );
+    }
+</script>
+<div class="jumbotron w-75">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Заголовок опроса</span>
+                    </div>
+                    <input type="text" name="title" class="form-control" aria-label="Заголовок опроса" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm1">Текст вопроса</span>
+                    </div>
+                    <input type="text" name="content" class="form-control" aria-label="Текст вопроса" aria-describedby="inputGroup-sizing-sm1">
+                </div>
+                <div class="mt-5">
+                    <h4>Варианты ответов</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" name="optionText" class="form-control" placeholder="Вариант ответа" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="addOption();">Добавить</button>
+                        </div>
+                    </div>
+                    <ul id="options" class="list-group">
+                    </ul>
+                </div>
+                <button onclick="submit();" class="btn btn-primary">Отправить</button>
+                </div>

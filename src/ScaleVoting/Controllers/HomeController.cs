@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.SQLite;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using ScaleVoting.Domains;
+using ScaleVoting.Infrastucture;
 
 namespace ScaleVoting.Controllers
 {
@@ -14,6 +19,11 @@ namespace ScaleVoting.Controllers
             return View();
         }
 
+        public ActionResult Auth()
+        {
+            return View();
+        }
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
