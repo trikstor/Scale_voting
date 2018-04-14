@@ -1,25 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Data.SQLite;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
-using ScaleVoting.Domains;
-using ScaleVoting.Infrastucture;
+﻿using System.Web.Mvc;
 
 namespace ScaleVoting.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Auth()
         {
             return View();
         }
