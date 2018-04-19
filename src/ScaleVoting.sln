@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting", "ScaleVoting\ScaleVoting.csproj", "{FDF125AD-8015-4C82-94B3-943614818A53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockChainMachine", "BlockChainMachine\BlockChainMachine.csproj", "{0F038B3F-77DB-45C1-B84C-EA416E8F2898}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCClient", "BCClient\BCClient.csproj", "{6809B954-21AC-4CAD-9CE1-F3666799381B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
