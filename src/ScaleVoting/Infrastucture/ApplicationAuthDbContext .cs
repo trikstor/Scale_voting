@@ -6,11 +6,11 @@ namespace ScaleVoting.Infrastucture
 {
     public class ApplicationAuthDbContext : IdentityDbContext<User>
     {
-        public ApplicationAuthDbContext() : base("name=UsersDB") { }
+        public ApplicationAuthDbContext() : base("name=IdentityDb") { }
 
         static ApplicationAuthDbContext()
         {
-            Database.SetInitializer(new IdentityDbInit());
+            Database.SetInitializer<ApplicationAuthDbContext>(new IdentityDbInit());
         }
 
         public static ApplicationAuthDbContext Create()

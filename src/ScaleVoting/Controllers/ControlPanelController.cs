@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using ScaleVoting.Core;
 using ScaleVoting.Infrastucture;
 
@@ -8,23 +7,20 @@ namespace ScaleVoting.Controllers
     public class ControlPanelController : Controller
     {
         private IPollWithOptionsProvider PollWithOptionsProvider { get; }
-        private IPollDbContext PollDbContext { get; }
         private string UserName => HttpContext.User.Identity.Name;
-        private RequestedPollsWithOptionsProvider RequestedPollsWithOptionsProvider =>
+        private IRequestedPollsWithOptionsProvider RequestedPollsWithOptionsProvider =>
             new RequestedPollsWithOptionsProvider();
-
-        public ControlPanelController(IPollWithOptionsProvider pollWithOptionsProvider, IPollDbContext pollDbContext)
+        public ControlPanelController(IPollWithOptionsProvider pollWithOptionsProvider)
         {
             PollWithOptionsProvider = pollWithOptionsProvider;
-            PollDbContext = pollDbContext;
         }
 
         [Authorize]
         public ActionResult Index()
         {
-            ViewBag.Polls = RequestedPollsWithOptionsProvider
-                .CreatePollWithOptions(PollDbContext.Polls, PollDbContext.Options, UserName);
-            //context.Dispose();
+            var context = new PollDbContext();
+            ViewBag.Polls = RequestedPollsWithOptionsProvider.CreatePollWithOptions(context, UserName);
+            context.Dispose();
             return View();
         }
 
@@ -38,9 +34,8 @@ namespace ScaleVoting.Controllers
             context.Options.AddRange(poll.Options);
             context.SaveChanges();
 
-            ViewBag.Polls =
-                RequestedPollsWithOptionsProvider.CreatePollWithOptions(PollDbContext.Polls, PollDbContext.Options, UserName);
-            //context.Dispose();
+            ViewBag.Polls = RequestedPollsWithOptionsProvider.CreatePollWithOptions(context, UserName);
+            context.Dispose();
             return true;
         }
 

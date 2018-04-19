@@ -1,59 +1,58 @@
 ﻿@using ScaleVoting.Infrastucture
-@using ScaleVoting.Models;
+@using ScaleVoting.Models.Polls
 @{
-    ViewBag.Title = "Управление опросами";
+  ViewBag.Title = "Управление опросами";
 }
+
 <div class="container d-flex justify-content-between w-100">
-    <nav id="left_navbar" class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Ваши опросы</a>
-        <nav class="nav nav-pills flex-column">
-            @{
-                foreach (var poll in ViewBag.Polls)
-                {
-                    <a class="nav-link" href="#@Html.Raw(poll.Poll.Id)">@Html.Raw(poll.Poll.Title)</a>
-                }
-            }
-        </nav>
-        <button type="button" class="btn btn-light" onclick="location.replace('/ControlPanel/NewPollForm')">Новый опроc <img src="~/Content/images/check-8x.png" width="15px" /></button>
+  <nav id="left_navbar" class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Ваши опросы</a>
+    <nav class="nav nav-pills flex-column">
+      <a class="nav-link" href="#item-1">Где живет Чебурашка?</a>
+      <a class="nav-link" href="#item-2">Какой фильм достоен Оскара?</a>
+      <a class="nav-link" href="#item-3">Когда удобнее устроить курс?</a>
     </nav>
+    <button type="button" class="btn btn-light" onclick="location.replace('/ControlPanel/NewPollForm')">Новый опроc <img src="~/Content/images/check-8x.png" width="15px"/></button>
+  </nav>
+
     <div id="right_data" data-spy="scroll" data-target="left_navbar" data-offset="0">
         @{
-            foreach (var poll in ViewBag.Polls)
-            {
-                <div id="@Html.Raw(poll.Poll.Id)" class="card m-2">
-                    <div class="card-header">
-                        @Html.Raw(poll.Poll.Title)
-                    </div>
-                    <div class="card-body">
-                        <div class="alert alert-danger" role="alert">
-                            <form>
-                                <button type="button" class="btn btn-danger">Закрыть опрос</button>
-                                <div class="form-check form-check-inline ml-5">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Приватный опрос</label>
-                                </div>
-                                <button type="button" class="btn btn-danger float-right">Удалить опрос</button>
-                            </form>
+                foreach (var poll in ViewBag.Polls)
+                {
+                    <div id="item-1" class="card m-2">
+                        <div class="card-header">
+                            @Html.Raw(poll.Poll.Title)
                         </div>
-                        <p class="card-text">
-                            @Html.Raw(poll.Poll.Content)
-                            @if (poll.Options != null)
-                            {
-                                foreach (var option in poll.Options)
-                                {
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="options" id="option1" value="option1" checked>
-                                        <label class="form-check-label" for="option1">
-                                            @Html.Raw(option.PollOption)
-                                        </label>
+                        <div class="card-body">
+                            <div class="alert alert-danger" role="alert">
+                                <form>
+                                    <button type="button" class="btn btn-danger">Закрыть опрос</button>
+                                    <div class="form-check form-check-inline ml-5">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">Приватный опрос</label>
                                     </div>
+                                    <button type="button" class="btn btn-danger float-right">Удалить опрос</button>
+                                </form>
+                            </div>
+                            <p class="card-text">
+                                @Html.Raw(poll.Poll.Content)
+                                @if (poll.Options != null)
+                                {
+                                    foreach (var option in poll.Options)
+                                     {
+                                         <div class="form-check">
+                                             <input class="form-check-input" type="radio" name="options" id="option1" value="option1" checked>
+                                             <label class="form-check-label" for="option1">
+                                                 @Html.Raw(option.PollOption)
+                                             </label>
+                                         </div>
+                                     }
                                 }
-                            }
-                        </p>
-                        <a href="/Voting/@Html.Raw(poll.Poll.Id)" class="btn btn-primary">Голосовать</a>
+                            </p>
+                            <a href="#" class="btn btn-primary">Голосовать</a>
+                        </div>
                     </div>
-                </div>
-            }
+                }
         }
     </div>
 </div>

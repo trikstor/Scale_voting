@@ -7,7 +7,7 @@ using NLog;
 
 namespace BCClient
 {
-    public class GeneralNodeClient
+    public class UstalovGeneralNodeClient
     {
         public string[] AllNodeUri;
         public long TimeoutInMsec { get; set; }

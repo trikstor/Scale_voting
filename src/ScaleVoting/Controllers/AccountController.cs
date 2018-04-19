@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Configuration;
 using Microsoft.AspNet.Identity;
@@ -16,16 +19,16 @@ namespace ScaleVoting.Controllers
         private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
         private ApplicationAuthUserManager AuthUserManager => HttpContext.GetOwinContext().GetUserManager<ApplicationAuthUserManager>();
         private string Salt => WebConfigurationManager.AppSettings["Salt"];
-
         public ActionResult Login()
         {
             return View();
         }
 
+
         [HttpPost]
-        public async Task<ActionResult> Login(FormUser model)
+        public async Task<ActionResult> Login(string email, string password)
         {
-            var user = await AuthUserManager.FindAsync(model.Email, Cryptography.Sha256(model.Password + Salt));
+            var user = await AuthUserManager.FindAsync(email, Cryptography.Sha256(password + Salt));
 
             if (user == null)
             {
@@ -44,7 +47,7 @@ namespace ScaleVoting.Controllers
                     }, ident);
                 return Redirect("/ControlPanel");
             }
-            return View(model);
+            return View();
         }
 
         public ActionResult Logout()
@@ -59,27 +62,25 @@ namespace ScaleVoting.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(FormUser model)
+        public async Task<ActionResult> Register(string email, string password)
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, PasswordHash = Cryptography.Sha256(model.Password + Salt) };
-                var result = await AuthUserManager.CreateAsync(user, Cryptography.Sha256(model.Password + Salt));
+                var user = new User { UserName = email, PasswordHash = Cryptography.Sha256(password + Salt) };
+                var result = await AuthUserManager.CreateAsync(user, Cryptography.Sha256(password + Salt));
                 if (result.Succeeded)
                 {
-                    return Redirect("/Account/Login");
+                    return Redirect("/Login");
                 }
-                AddErrorsFromResult(result);
+                else
+                {
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
             }
-            return View(model);
-        }
-
-        private void AddErrorsFromResult(IdentityResult result)
-        {
-            foreach (string error in result.Errors)
-            {
-                ModelState.AddModelError("", error);
-            }
+            return View();
         }
     }
 }
