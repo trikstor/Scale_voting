@@ -10,6 +10,12 @@ namespace ScaleVoting
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Voting",
+                "Voting/{id}",
+                new { controller = "Voting", action = "Index" }
+            );
+
+            routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
                 new {controller = "Home", action = "Index", id = UrlParameter.Optional}

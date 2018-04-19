@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;
 
 namespace ScaleVoting.Core
 {
-    public class RequestedPollsWithOptionsProvider : IRequestedPollsWithOptionsProvider
+    public class RequestedPollsWithOptionsProvider
     {
-        public IEnumerable<PollWithOptions> CreatePollWithOptions(PollDbContext context, string userName)
+        public IEnumerable<PollWithOptions> CreatePollWithOptions(IEnumerable<Poll> polls, IEnumerable<Option> options, string userName)
         {
-            return context.Polls
+            return polls
                 .Where(pol => pol.UserName == userName)
                 .Select(poll =>
                     new PollWithOptions
                     {
                         Poll = poll,
-                        Options = CreateOptions(context, poll.Id)
+                        Options = CreateOptions(options, poll.Id)
                     });
         }
 
-        private IEnumerable<Option> CreateOptions(PollDbContext context, Guid pollId)
+        private IEnumerable<Option> CreateOptions(IEnumerable<Option> options, Guid pollId)
         {
-            return context.Options.Where(opt => opt.PollId == pollId);
+            return options.Where(opt => opt.PollId == pollId);
         }
     }
 }
