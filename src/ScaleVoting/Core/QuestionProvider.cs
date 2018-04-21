@@ -6,18 +6,18 @@ using ScaleVoting.Models.ValidationAndPreprocessing;
 
 namespace ScaleVoting.Core
 {
-    public class PollWithOptionsWithOptionsProvider : IPollWithOptionsProvider
+    public class QuestionProvider : IQuestionProvider
     {
         private IPreprocessor Preprocessor { get; }
         private IFieldValidator Validator { get; }
 
-        public PollWithOptionsWithOptionsProvider(IPreprocessor preprocessor, IFieldValidator validator)
+        public QuestionProvider(IPreprocessor preprocessor, IFieldValidator validator)
         {
             Preprocessor = preprocessor;
             Validator = validator;
         }
 
-        public PollWithOptions CreatePoll(string userName, string title, string content, string[] options)
+        public Question CreatePoll(string userName, string title, string content, IEnumerable<string> options)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace ScaleVoting.Core
                 {
                 */
                 var id = Guid.NewGuid();
-                var poll = new Poll
+                var poll = new Question
                 {
                     UserName = userName,
                     Title = Preprocessor.ProcessField(title),
@@ -40,13 +40,13 @@ namespace ScaleVoting.Core
                     PollId = id,
                     PollOption = opt
                 }).ToList();
-                return new PollWithOptions { Poll = poll, Options = processedOptions };
+                return new Question {UserName = userName, Title = title, Content = content, Options = processedOptions};
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-            return default(PollWithOptions);
+            return default(Question);
         }
     }
 }

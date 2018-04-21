@@ -72,7 +72,7 @@
     <Compile Include="NodesCache.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UstalovGeneralNodeClient.cs" />
+    <Compile Include="NodeClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config" />
@@ -83,6 +83,14 @@
     <ProjectReference Include="..\BlockChainMachine\BlockChainMachine.csproj">
       <Project>{0F038B3F-77DB-45C1-B84C-EA416E8F2898}</Project>
       <Name>BlockChainMachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlockChainMachine\BlockChainMachine.csproj">
+      <Project>{0f038b3f-77db-45c1-b84c-ea416e8f2898}</Project>
+      <Name>BlockChainMachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScaleVoting\ScaleVoting.csproj">
+      <Project>{fdf125ad-8015-4c82-94b3-943614818a53}</Project>
+      <Name>ScaleVoting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

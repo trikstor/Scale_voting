@@ -44,8 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Block.cs" />
-    <Compile Include="Core\Blockchain.cs" />
-    <Compile Include="Core\Transaction.cs" />
+    <Compile Include="Core\IAnswer.cs" />
+    <Compile Include="Core\Answer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

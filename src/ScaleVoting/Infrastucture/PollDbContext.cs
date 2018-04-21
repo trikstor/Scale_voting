@@ -9,7 +9,7 @@ namespace ScaleVoting.Infrastucture
     {
         public PollDbContext() : base("name=PollDatabase")
         { }
-        public DbSet<Poll> Polls { get; set; }
+        public DbSet<Question> Questions { get; set; }
         public DbSet<Option> Options { get; set; }
     }
 }

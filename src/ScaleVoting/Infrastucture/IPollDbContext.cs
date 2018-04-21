@@ -5,7 +5,7 @@ namespace ScaleVoting.Infrastucture
 {
     public interface IPollDbContext
     {
-        DbSet<Poll> Polls { get; set; }
+        DbSet<Question> Questions { get; set; }
         DbSet<Option> Options { get; set; }
     }
 }

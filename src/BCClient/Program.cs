@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using BlockChainMachine.Core;
 using Newtonsoft.Json;
@@ -11,7 +10,7 @@ namespace BCClient
         public static void Main(string[] args)
         {
             var json = JsonConvert.SerializeObject(
-                new Transaction() {OptionId = "1", PollId = "aaaaa", UserHash = "bbbbb"});
+                new Answer("1", "aaaaa", "bbbbb");
             var nodeClient = new UstalovGeneralNodeClient()
             {
                 AllNodeUri = new[] {"http://127.0.0.1:3344"},

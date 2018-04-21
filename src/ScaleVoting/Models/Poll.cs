@@ -1,14 +1,15 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using BCClient;
 
 namespace ScaleVoting.Models
 {
     public class Poll
     {
-        public string UserName { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        [Key]
-        public Guid Id { get; set; }
+        public Question[] Questions { get; }
+        public BlockChainStatistics Statistics { get; }
+        
+        public Poll(Question[] questions)
+        {
+            Questions = questions;
+        }
     }
 }

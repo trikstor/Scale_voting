@@ -1,6 +1,4 @@
-﻿@using ScaleVoting.Infrastucture
-@using ScaleVoting.Models;
-@{
+﻿@{
     ViewBag.Title = "Управление опросами";
 }
 <div class="container d-flex justify-content-between w-100">
@@ -8,7 +6,7 @@
         <a class="navbar-brand" href="#">Ваши опросы</a>
         <nav class="nav nav-pills flex-column">
             @{
-                foreach (var poll in ViewBag.Polls)
+                foreach (var poll in ViewBag.Questions)
                 {
                     <a class="nav-link" href="#@Html.Raw(poll.Poll.Id)">@Html.Raw(poll.Poll.Title)</a>
                 }
@@ -18,7 +16,7 @@
     </nav>
     <div id="right_data" data-spy="scroll" data-target="left_navbar" data-offset="0">
         @{
-            foreach (var poll in ViewBag.Polls)
+            foreach (var poll in ViewBag.Questions)
             {
                 <div id="@Html.Raw(poll.Poll.Id)" class="card m-2">
                     <div class="card-header">

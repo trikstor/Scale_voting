@@ -1,29 +1,37 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using ScaleVoting.Core;
 using ScaleVoting.Infrastucture;
+using ScaleVoting.Models;
 
 namespace ScaleVoting.Controllers
 {
     public class ControlPanelController : Controller
     {
-        private IPollWithOptionsProvider PollWithOptionsProvider { get; }
+        private IQuestionProvider QuestionProvider { get; }
         private IPollDbContext PollDbContext { get; }
         private string UserName => HttpContext.User.Identity.Name;
-        private RequestedPollsWithOptionsProvider RequestedPollsWithOptionsProvider =>
-            new RequestedPollsWithOptionsProvider();
 
-        public ControlPanelController(IPollWithOptionsProvider pollWithOptionsProvider, IPollDbContext pollDbContext)
+        public ControlPanelController(IQuestionProvider questionProvider, IPollDbContext pollDbContext)
         {
-            PollWithOptionsProvider = pollWithOptionsProvider;
+            QuestionProvider = questionProvider;
             PollDbContext = pollDbContext;
         }
 
         [Authorize]
         public ActionResult Index()
         {
-            ViewBag.Polls = RequestedPollsWithOptionsProvider
-                .CreatePollWithOptions(PollDbContext.Polls, PollDbContext.Options, UserName);
+            var questions = PollDbContext.Questions
+                .Where(question => question.UserName == UserName);
+            
+            foreach (var question in questions)
+            {
+                question.SetOptionsFromContext(PollDbContext.Options);
+            }
+
+            ViewBag.Questions = questions;
             //context.Dispose();
             return View();
         }
@@ -32,14 +40,22 @@ namespace ScaleVoting.Controllers
         [HttpPost]
         public bool Index(string title, string content, string[] options)
         {
-            var poll = PollWithOptionsProvider.CreatePoll(HttpContext.User.Identity.Name, title, content, options);
+            var currentQuestion = QuestionProvider.CreatePoll(HttpContext.User.Identity.Name, title, content, options);
             var context = new PollDbContext();
-            context.Polls.Add(poll.Poll);
-            context.Options.AddRange(poll.Options);
+            context.Questions.Add(currentQuestion);
+            context.Options.AddRange(currentQuestion.Options);
             context.SaveChanges();
 
-            ViewBag.Polls =
-                RequestedPollsWithOptionsProvider.CreatePollWithOptions(PollDbContext.Polls, PollDbContext.Options, UserName);
+            var questions = PollDbContext.Questions
+                .Where(question => question.UserName == UserName);
+            
+            foreach (var question in questions)
+            {
+                question.SetOptionsFromContext(PollDbContext.Options);
+            }
+
+            ViewBag.Questions = questions;
+                
             //context.Dispose();
             return true;
         }

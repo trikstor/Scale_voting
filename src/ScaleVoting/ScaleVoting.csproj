@@ -186,17 +186,16 @@
     <Compile Include="Controllers\ControlPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VotingController.cs" />
-    <Compile Include="Core\IRequestedPollsWithOptionsProvider.cs" />
-    <Compile Include="Core\RequestedPollsWithOptionsProvider.cs" />
     <Compile Include="Extensions\Cryptography.cs" />
     <Compile Include="Infrastucture\IPollDbContext.cs" />
+    <Compile Include="Models\FormPoll.cs" />
     <Compile Include="Models\FormUser.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\Poll.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Global.asax.cs" />
     <Compile Include="Infrastucture\ApplicationAuthDbContext .cs" />
     <Compile Include="Infrastucture\ApplicationAuthUserManager.cs" />
-    <Compile Include="Models\PollWithOptions.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Infrastucture\PollDbContext.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\FieldPreprocessor.cs" />
@@ -205,9 +204,9 @@
     <Compile Include="Core\ValidationAndPreprocessing\IFieldValidator.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\IPreprocessing.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\IPreprocessor.cs" />
-    <Compile Include="Core\IPollWithOptionsProvider.cs" />
+    <Compile Include="Core\IQuestionProvider.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\MarkdownToHtmlProcessor.cs" />
-    <Compile Include="Core\PollWithOptionsWithOptionsProvider.cs" />
+    <Compile Include="Core\QuestionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +305,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BCClient\BCClient.csproj">
+      <Project>{6809b954-21ac-4cad-9ce1-f3666799381b}</Project>
+      <Name>BCClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlockChainMachine\BlockChainMachine.csproj">
+      <Project>{0f038b3f-77db-45c1-b84c-ea416e8f2898}</Project>
+      <Name>BlockChainMachine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

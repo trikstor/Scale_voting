@@ -818,7 +818,7 @@
       <xs:extension base="Target">
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string" />
-          <xs:element name="useTransactions" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+          <xs:element name="useAnswers" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="dbUserName" minOccurs="0" maxOccurs="1" type="Layout" />
           <xs:element name="dbProvider" minOccurs="0" maxOccurs="1" type="xs:string" />
           <xs:element name="dbPassword" minOccurs="0" maxOccurs="1" type="Layout" />
@@ -840,7 +840,7 @@
             <xs:documentation>Name of the target.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="useTransactions" type="xs:boolean">
+        <xs:attribute name="useAnswers" type="xs:boolean">
           <xs:annotation>
             <xs:documentation>Obsolete - value will be ignored! The logging code always runs outside of transaction. Gets or sets a value indicating whether to use database transactions. Some data providers require this.</xs:documentation>
           </xs:annotation>

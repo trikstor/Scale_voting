@@ -9,8 +9,6 @@ namespace ScaleVoting.Controllers
     {
         private IPollDbContext PollDbContext { get; }
         private string UserName => HttpContext.User.Identity.Name;
-        private RequestedPollsWithOptionsProvider RequestedPollsWithOptionsProvider =>
-            new RequestedPollsWithOptionsProvider();
 
         public VotingController(IPollDbContext pollDbContext)
         {
@@ -20,11 +18,14 @@ namespace ScaleVoting.Controllers
         [Authorize]
         public ActionResult Index(string id)
         {
-            ViewBag.Poll = RequestedPollsWithOptionsProvider
-                .CreatePollWithOptions(PollDbContext.Polls
-                .Where(poll => poll.Id.ToString() == id), PollDbContext.Options, UserName)
+            var question = PollDbContext.Questions
+                .Where(q => q.Id.ToString() == id)
                 .ToArray()
                 .First();
+            
+            question.SetOptionsFromContext(PollDbContext.Options);
+
+            ViewBag.Question = question;
 
             return View();
         }

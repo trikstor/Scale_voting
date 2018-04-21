@@ -1,26 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using BlockChainMachine.Core;
+using NLog;
+using ScaleVoting.Extensions;
+using ScaleVoting.Models;
 
 namespace BCClient
 {
     public class BlockChainStatisticsProvider
     {
-        private string PollId { get; }
+        private Question Question { get; }
         private string[] AllowedOptions { get; }
         private IList<string> VotedUsersHashes { get; }
-
-        public BlockChainStatisticsProvider(string pollId, string[] allowedOptions)
+        private ILogger Logger => LogManager.GetCurrentClassLogger();
+        
+        public BlockChainStatisticsProvider(Question question, string[] allowedOptions)
         {
-            PollId = pollId;
+            Question = question;
             AllowedOptions = allowedOptions;
             VotedUsersHashes = new List<string>();
         }
 
-        public BlockChainStatistics GetStatisticsFor(Block[] blockChain)
+        public BlockChainStatistics GetStatisticsFor(IEnumerable<Block> blockChain)
         {
-            var result = new BlockChainStatistics(PollId, AllowedOptions);
+            var result = new BlockChainStatistics(Question, AllowedOptions);
 
             var preBlockHash = "genesis";
 
@@ -28,10 +31,10 @@ namespace BCClient
             {
                 if (preBlockHash != "genesis")
                 {
-                    if (BlockChain.Hash(block) != preBlockHash)
+                    if (Cryptography.Sha256(block.ToString()) != preBlockHash)
                     {
-                        Console.WriteLine($"Скомпрометированный блок: " +
-                                          $"blockIndex: {block.Index}, pollId: {PollId}");
+                        Logger.Info("Скомпрометированный блок: " +
+                                          $"blockIndex: {block.Index}, questionId: {Question.Id}");
                         continue;
                     }
                 }
@@ -42,11 +45,11 @@ namespace BCClient
 
                 foreach (var transaction in block.Transactions)
                 {
-                    if (transaction.PollId != PollId ||
-                        result.UserHashes.Contains(transaction.UserHash))
+                    if (transaction.QuestionId != Question.Id.ToString() || 
+                        (transaction.QuestionId == Question.Id.ToString() && result.UserHashes.Contains(transaction.UserHash)))
                     {
-                        Console.WriteLine($"Скомпрометированная транзакция: " +
-                                          $"userHash: {transaction.UserHash}, pollId: {transaction.PollId}");
+                        Logger.Info("Скомпрометированная транзакция: " +
+                                          $"userHash: {transaction.UserHash}, pollId: {transaction.QuestionId}");
                         continue;
                     }
                     result.UserHashes.Add(transaction.UserHash);
@@ -56,8 +59,8 @@ namespace BCClient
                     }
                     else
                     {
-                        Console.WriteLine($"Скомпрометированная транзакция: " +
-                                          $"userHash: {transaction.UserHash}, pollId: {transaction.PollId}");
+                        Logger.Info("Скомпрометированная транзакция: " +
+                                          $"userHash: {transaction.UserHash}, pollId: {transaction.QuestionId}");
                     }
                 }
             }

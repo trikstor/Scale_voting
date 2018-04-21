@@ -9,7 +9,7 @@ namespace BlockChainMachine.Core
     public struct Block
     {
         public int Index;
-        public List<Transaction> Transactions;
+        public List<Answer> Transactions;
         public string PreviousHash;
         public string TimeStamp;
 
@@ -30,11 +30,11 @@ namespace BlockChainMachine.Core
         }
     }
     
-    public sealed class TransactionMap : ClassMap<Transaction>
+    public sealed class TransactionMap : ClassMap<Answer>
     {
         public TransactionMap()
         {
-            Map(m => m.PollId);
+            Map(m => m.QuestionId);
             Map(m => m.UserHash);
             Map(m => m.OptionId);
         }

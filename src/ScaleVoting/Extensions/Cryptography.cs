@@ -10,7 +10,7 @@ namespace ScaleVoting.Extensions
         {
             var crypt = new SHA256Managed();
             var hash = string.Empty;
-            var crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(randomString));
+            var crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(randomString));
             return crypto.Aggregate(hash, (current, theByte) => current + theByte.ToString("x2"));
         }
     }
