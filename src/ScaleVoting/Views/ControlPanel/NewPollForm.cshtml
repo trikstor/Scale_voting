@@ -2,57 +2,60 @@
 @{
     ViewBag.Title = "Создать новый опрос";
 }
-<script language="javascript">
-    var options = new Array();
-    function addOption() {
-        $('#options')
-            .append('<li class="list-group-item">' + $('input[name=optionText]').val() + '</li>');
-        options.push($('input[name=optionText]').val());
-    }
+    <script language="javascript">
+        var questions = new Object();
+        var questionId = 0;
 
-    function submit() {
-        $.post("/ControlPanel",
-            {
-                'options[]': options
-            },
-            function(result) {
-                if(result)
+        function addQuestion() {
+            $('#questions')
+                .append('<li class="list-group-item"><input type="text" name="' + questionId + '" />' + 
+                        '<button onclick="addOption(' + questionId + ');" class="btn btn-primary">Добавить</button><br/>' + 
+                        $('input[name=questionTitle]').val() + '<div id="' + questionId + '"></div></li>');
+            questions[questionId] = new Object();
+            questions[questionId].title = $('input[name=questionTitle]').val();
+            questions[questionId].options = new Array();
+            questionId++;
+        }
+
+        function addOption(optionId) {
+            $('#' + optionId)
+                .append('<li class="list-group-item">' + $('input[name=' + optionId + ']').val() + '</li>');
+            
+            questions[optionId].options.push($('input[name=' + optionId + ']').val());
+        }
+
+        function submit() {
+            var jsonPoll = JSON.stringify(questions);
+            $.post("/ControlPanel",
                 {
-                    location.replace('/ControlPanel');
+                },
+                function(result) {
+                    if(result)
+                    {
+                        location.replace('/ControlPanel');
+                    }
                 }
-            }
-        );
-    }
-</script>
-
-@Html.ValidationSummary(false)
-@using (Html.BeginForm())
-{
+            );
+        }
+    </script>
+        
     <div class="jumbotron w-75">
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Заголовок опроса</span>
             </div>
-            @Html.TextBoxFor(model => model.Title, new {@class = "form-control"})
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm1">Текст вопроса</span>
-            </div>
-            @Html.TextBoxFor(model => model.Content, new {@class = "form-control"})
+            <input type="text" />
         </div>
         <div class="mt-5">
-            <h4>Варианты ответов</h4>
+            <h4>Вопросы</h4>
             <div class="input-group mb-3">
-                <input type="text" name="optionText" class="form-control" placeholder="Вариант ответа" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" name="questionTitle" class="form-control" placeholder="Текст вопроса" aria-label="" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" onclick="addOption();">Добавить</button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="addQuestion();">Добавить</button>
                 </div>
             </div>
-            <ul id="options" class="list-group">
+            <ul id="questions" class="list-group">
             </ul>
-            @Html.
         </div>
         <button onclick="submit();" class="btn btn-primary">Отправить</button>
     </div>
-}

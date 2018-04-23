@@ -14,79 +14,20 @@
       <file leaf-file-name="ControlPanelController.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/ControlPanelController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="292">
+              <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
               <folding>
-                <marker date="1524290761000" expanded="true" signature="6:183" ph="..." />
-                <marker date="1524290761000" expanded="true" signature="218:2174" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="273:2172" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="565:677" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="734:1137" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="924:1023" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="1251:1987" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="1759:1858" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="2050:2166" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Index.cshtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/Index.cshtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-              <folding>
-                <marker date="1524290212000" expanded="true" signature="0:47" ph="@..." />
-                <marker date="1524290212000" expanded="true" signature="48:2883" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="113:713" ph="&lt;nav.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="238:516" ph="&lt;nav.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="290:501" ph="@..." />
-                <marker date="1524290212000" expanded="true" signature="348:487" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="718:2876" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="808:2865" ph="@..." />
-                <marker date="1524290212000" expanded="true" signature="862:2855" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="893:2841" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="965:1068" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="1089:2818" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="1137:1851" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="1211:1820" ph="&lt;form.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="1350:1672" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="1876:2686" ph="&lt;p.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="1983:2657" ph="@..." />
-                <marker date="1524290212000" expanded="true" signature="2009:2657" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="2108:2627" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="2179:2593" ph="&lt;div.../&gt;" />
-                <marker date="1524290212000" expanded="true" signature="2382:2550" ph="&lt;label.../&gt;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PollDbContext.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScaleVoting/Infrastucture/PollDbContext.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="40" />
-              <folding>
-                <marker date="1524289660000" expanded="false" signature="6:99" ph="..." />
-                <marker date="1524289660000" expanded="true" signature="136:372" ph="{...}" />
-                <marker date="1524289660000" expanded="true" signature="181:370" ph="{...}" />
-                <marker date="1524289660000" expanded="true" signature="246:258" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IPollDbContext.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScaleVoting/Infrastucture/IPollDbContext.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="33" />
-              <folding>
-                <marker date="1524289660000" expanded="false" signature="6:51" ph="..." />
-                <marker date="1524289660000" expanded="true" signature="88:232" ph="{...}" />
-                <marker date="1524289660000" expanded="true" signature="126:230" ph="{...}" />
+                <marker date="1524376746000" expanded="false" signature="6:183" ph="..." />
+                <marker date="1524376746000" expanded="true" signature="218:2912" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="273:2910" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="565:677" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="734:1137" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="924:1023" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="1310:2725" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="1588:2105" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="1788:1981" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="2497:2596" ph="{...}" />
+                <marker date="1524376746000" expanded="true" signature="2788:2904" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -95,48 +36,69 @@
       <file leaf-file-name="Question.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Question.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="51" />
               <folding>
-                <marker date="1524290761000" expanded="true" signature="6:111" ph="..." />
-                <marker date="1524290761000" expanded="true" signature="141:585" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="169:583" ph="{...}" />
-                <marker date="1524290761000" expanded="true" signature="495:577" ph="{...}" />
+                <marker date="1524376453000" expanded="false" signature="6:111" ph="..." />
+                <marker date="1524376453000" expanded="true" signature="141:515" ph="{...}" />
+                <marker date="1524376453000" expanded="true" signature="169:513" ph="{...}" />
+                <marker date="1524376453000" expanded="true" signature="397:507" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IQuestionProvider.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/IQuestionProvider.cs">
+      <file leaf-file-name="Poll.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Poll.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="88" lean-forward="false" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+            <state relative-caret-position="180">
+              <caret line="14" column="47" lean-forward="false" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="60" />
               <folding>
-                <marker date="1524289660000" expanded="true" signature="6:59" ph="..." />
-                <marker date="1524289660000" expanded="true" signature="87:247" ph="{...}" />
-                <marker date="1524289660000" expanded="true" signature="128:245" ph="{...}" />
+                <marker date="1524375264000" expanded="false" signature="6:74" ph="..." />
+                <marker date="1524375264000" expanded="true" signature="104:690" ph="{...}" />
+                <marker date="1524375264000" expanded="true" signature="128:688" ph="{...}" />
+                <marker date="1524375264000" expanded="true" signature="505:682" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuestionProvider.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/QuestionProvider.cs">
+      <file leaf-file-name="User.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/User.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1524290212000" expanded="false" signature="6:145" ph="..." />
-                <marker date="1524290212000" expanded="true" signature="173:1726" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="229:1724" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="426:522" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="634:1718" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="660:1572" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="691:933" ph="/* if (Validator.FieldIsValid(title, FieldType.Title) &amp;&amp; ... */" />
-                <marker date="1524290212000" expanded="true" signature="1031:1247" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="1337:1426" ph="{...}" />
-                <marker date="1524290212000" expanded="true" signature="1604:1670" ph="{...}" />
+                <marker date="1524043755000" expanded="true" signature="78:131" ph="{...}" />
+                <marker date="1524043755000" expanded="true" signature="117:129" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormUser.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormUser.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="10" selection-end-column="44" />
+              <folding>
+                <marker date="1524283015000" expanded="true" signature="74:242" ph="{...}" />
+                <marker date="1524283015000" expanded="true" signature="102:240" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Option.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Option.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+              <folding>
+                <marker date="1524377459000" expanded="false" signature="6:58" ph="..." />
+                <marker date="1524377459000" expanded="true" signature="88:366" ph="{...}" />
+                <marker date="1524377459000" expanded="true" signature="114:364" ph="{...}" />
+                <marker date="1524377459000" expanded="true" signature="261:358" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -145,14 +107,65 @@
       <file leaf-file-name="VotingController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/VotingController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="315">
+              <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
               <folding>
-                <marker date="1524290852000" expanded="true" signature="6:97" ph="..." />
-                <marker date="1524290852000" expanded="true" signature="132:833" ph="{...}" />
-                <marker date="1524290852000" expanded="true" signature="181:831" ph="{...}" />
-                <marker date="1524290852000" expanded="true" signature="371:434" ph="{...}" />
-                <marker date="1524290852000" expanded="true" signature="500:825" ph="{...}" />
+                <marker date="1524377471000" expanded="true" signature="6:99" ph="..." />
+                <marker date="1524377471000" expanded="true" signature="134:1061" ph="{...}" />
+                <marker date="1524377471000" expanded="true" signature="183:1059" ph="{...}" />
+                <marker date="1524377471000" expanded="true" signature="375:438" ph="{...}" />
+                <marker date="1524377471000" expanded="true" signature="504:829" ph="{...}" />
+                <marker date="1524377471000" expanded="true" signature="928:1053" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlockChainStatisticsProvider.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BCClient/BlockChainStatisticsProvider.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="48" column="72" lean-forward="false" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
+              <folding>
+                <marker date="1524289593000" expanded="false" signature="6:150" ph="..." />
+                <marker date="1524289593000" expanded="true" signature="170:2623" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="218:2621" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="539:688" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="773:2615" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="950:2578" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="1011:1371" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="1108:1353" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="1392:1483" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="1548:2564" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="1771:2036" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="2172:2290" ph="{...}" />
+                <marker date="1524289593000" expanded="true" signature="2315:2546" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormPoll.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormPoll.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+              <folding>
+                <marker date="1524374048000" expanded="true" signature="74:250" ph="{...}" />
+                <marker date="1524374048000" expanded="true" signature="102:248" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormVoting.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormVoting.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <folding>
+                <marker date="1524377459000" expanded="true" signature="74:118" ph="{...}" />
+                <marker date="1524377459000" expanded="true" signature="104:116" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -163,11 +176,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/BCClient/NodeClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlockChainMachine/Core/Block.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ScaleVoting/Core/QuestionProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BCClient/BlockChainStatisticsProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ScaleVoting/Core/IQuestionProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlockChainMachine/Core/Answer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Web.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ScaleVoting/Models/FormVoting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BCClient/BlockChainExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Global.asax" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/packages.config" root0="FORCE_HIGHLIGHTING" />
@@ -184,6 +196,7 @@
     <setting file="file://$PROJECT_DIR$/ScaleVoting/App_Start/RouteConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Models/Question.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Models/Option.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ScaleVoting/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/NewPollForm.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/Index.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ScaleVoting/Views/Account/Register.cshtml" root0="FORCE_HIGHLIGHTING" />
@@ -204,11 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ScaleVoting/Model/FieldValidator.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Model/IPreprocessing.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Model/Shielding.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Model/FieldPreprocessor.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Models/IPreprocessing.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Models/PollProvider.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Models/IPreprocessor.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Models/FieldPreprocessor.cs" />
@@ -237,12 +245,8 @@
         <option value="$PROJECT_DIR$/ScaleVoting/Extensions/Cryptography.cs" />
         <option value="$PROJECT_DIR$/BlockChainMachine/Core/Block.cs" />
         <option value="$PROJECT_DIR$/BCClient/Program.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Models/FormPoll.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/NewPollForm.cshtml" />
         <option value="$PROJECT_DIR$/ScaleVoting/Models/QuestionWithOptions.cs" />
-        <option value="$PROJECT_DIR$/ScaleVoting/Models/Poll.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Models/Answer.cs" />
-        <option value="$PROJECT_DIR$/BCClient/BlockChainStatistics.cs" />
         <option value="$PROJECT_DIR$/BCClient/BlockChainStatisticsProvider.cs" />
         <option value="$PROJECT_DIR$/BlockChainMachine/Core/Answer.cs" />
         <option value="$PROJECT_DIR$/BlockChainMachine/Core/IAnswer.cs" />
@@ -251,9 +255,18 @@
         <option value="$PROJECT_DIR$/ScaleVoting/Infrastucture/PollDbContext.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Infrastucture/IPollDbContext.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/Index.cshtml" />
+        <option value="$PROJECT_DIR$/BCClient/BlockChainStatistics.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Core/OptionProvider.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Controllers/PollProvider.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Core/QuestionProvider.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Models/FormPoll.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Core/PollProvider.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Models/Poll.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/NewPollForm.cshtml" />
         <option value="$PROJECT_DIR$/ScaleVoting/Models/Question.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Controllers/ControlPanelController.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Models/FormVoting.cs" />
+        <option value="$PROJECT_DIR$/ScaleVoting/Models/Option.cs" />
         <option value="$PROJECT_DIR$/ScaleVoting/Controllers/VotingController.cs" />
       </list>
     </option>
@@ -284,7 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -300,17 +312,6 @@
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="BlockChainMachine" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="BlockChainMachine" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Core" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
             <path>
@@ -318,24 +319,6 @@
               <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Controllers" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Core" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Extensions" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Infrastucture" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
             <path>
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
@@ -354,13 +337,6 @@
               <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Views" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Account" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="ScaleVoting (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="ScaleVoting" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Views" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="ControlPanel" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
@@ -369,6 +345,7 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,11 +409,15 @@
       <workItem from="1524283068756" duration="212000" />
       <workItem from="1524283322867" duration="113000" />
       <workItem from="1524283471854" duration="5880000" />
+      <workItem from="1524304677733" duration="1087000" />
+      <workItem from="1524371265172" duration="656000" />
+      <workItem from="1524371951443" duration="277000" />
+      <workItem from="1524372296564" duration="4622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36738000" />
+    <option name="totallyTimeSpent" value="43380000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -458,7 +439,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09310762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -482,25 +463,26 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ScaleVoting/Global.asax.cs</url>
+          <line>13</line>
+          <properties documentPath="$PROJECT_DIR$/ScaleVoting/Global.asax.cs">
+            <startOffsets>
+              <startOffset value="284" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="285" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/ValidationAndPreprocessing/IPreprocessing.cs" />
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/ValidationAndPreprocessing/IPreprocessor.cs" />
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/_ViewStart.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Scripts/jquery-3.0.0.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4349">
@@ -512,13 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/HomeController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -559,24 +534,11 @@
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/ValidationAndPreprocessing/IPollProvider.cs" />
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/ValidationAndPreprocessing/PollProvider.cs" />
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/ValidationAndPreprocessing/FieldValidator.cs" />
-    <entry file="file://$PROJECT_DIR$/BlockChainMachine/Core/Blockchain.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="24" column="68" lean-forward="false" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/BlockChainMachine/Core/Blockchain.cs" />
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Extensions/Cryptography.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <marker date="1524284938000" expanded="false" signature="6:73" ph="..." />
-            <marker date="1524284938000" expanded="true" signature="107:493" ph="{...}" />
-            <marker date="1524284938000" expanded="true" signature="139:491" ph="{...}" />
-            <marker date="1524284938000" expanded="true" signature="202:485" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -584,17 +546,157 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/Account/Register.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/Account/Login.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BCClient/NodesCache.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BCClient/NodeClient.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Answer.cs" />
+    <entry file="file://$PROJECT_DIR$/BlockChainMachine/Core/Answer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlockChainMachine/Core/IAnswer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/QuestionWithOptions.cs" />
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/IQuestionProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="88" lean-forward="false" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Infrastucture/IPollDbContext.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Infrastucture/PollDbContext.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/IRequestedPollsWithOptionsProvider.cs" />
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/Index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/RequestedPollsWithOptionsProvider.cs" />
+    <entry file="file://$PROJECT_DIR$/BCClient/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/HomeController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/OptionProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Global.asax.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
-            <marker date="1524289171000" expanded="false" signature="6:64" ph="..." />
-            <marker date="1524289171000" expanded="true" signature="98:1021" ph="{...}" />
-            <marker date="1524289171000" expanded="true" signature="105:170" ph="///     Один блок целой цепи ... " />
-            <marker date="1524289171000" expanded="true" signature="194:570" ph="{...}" />
-            <marker date="1524289171000" expanded="true" signature="380:564" ph="{...}" />
-            <marker date="1524289171000" expanded="true" signature="626:788" ph="{...}" />
-            <marker date="1524289171000" expanded="true" signature="658:782" ph="{...}" />
-            <marker date="1524289171000" expanded="true" signature="851:1019" ph="{...}" />
-            <marker date="1524289171000" expanded="true" signature="889:1013" ph="{...}" />
+            <marker date="1524043755000" expanded="false" signature="6:159" ph="..." />
+            <marker date="1524043755000" expanded="true" signature="182:1134" ph="{...}" />
+            <marker date="1524043755000" expanded="true" signature="226:1132" ph="{...}" />
+            <marker date="1524043755000" expanded="true" signature="275:1126" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/PollProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="10" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/NewPollForm.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+          <folding>
+            <marker date="1524375486000" expanded="true" signature="35:82" ph="@..." />
+            <marker date="1524375486000" expanded="true" signature="83:893" ph="&lt;script.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="172:362" ph="{...}" />
+            <marker date="1524375486000" expanded="true" signature="389:574" ph="{...}" />
+            <marker date="1524375486000" expanded="true" signature="602:883" ph="{...}" />
+            <marker date="1524375486000" expanded="true" signature="648:702" ph="{...}" />
+            <marker date="1524375486000" expanded="true" signature="733:866" ph="{...}" />
+            <marker date="1524375486000" expanded="true" signature="926:1935" ph="@..." />
+            <marker date="1524375486000" expanded="true" signature="951:1935" ph="{...}" />
+            <marker date="1524375486000" expanded="true" signature="958:1933" ph="&lt;div.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="995:1299" ph="&lt;div.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="1053:1202" ph="&lt;div.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="1308:1843" ph="&lt;div.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="1368:1759" ph="&lt;div.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="1566:1740" ph="&lt;div.../&gt;" />
+            <marker date="1524375486000" expanded="true" signature="1772:1828" ph="&lt;ul.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/QuestionProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="37" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -615,192 +717,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Global.asax.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <marker date="1524043755000" expanded="true" signature="6:159" ph="..." />
-            <marker date="1524043755000" expanded="true" signature="182:1134" ph="{...}" />
-            <marker date="1524043755000" expanded="true" signature="226:1132" ph="{...}" />
-            <marker date="1524043755000" expanded="true" signature="275:1126" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormUser.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <marker date="1524283015000" expanded="true" signature="74:242" ph="{...}" />
-            <marker date="1524283015000" expanded="true" signature="102:240" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/Account/Register.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1524283015000" expanded="true" signature="92:495" ph="@..." />
-            <marker date="1524283015000" expanded="true" signature="117:495" ph="{...}" />
-            <marker date="1524283015000" expanded="true" signature="128:272" ph="&lt;div.../&gt;" />
-            <marker date="1524283015000" expanded="true" signature="277:426" ph="&lt;div.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormPoll.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <marker date="1524287146000" expanded="true" signature="74:315" ph="{...}" />
-            <marker date="1524287146000" expanded="true" signature="102:313" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/Account/Login.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="5" />
-          <folding>
-            <marker date="1524283015000" expanded="true" signature="92:493" ph="@..." />
-            <marker date="1524283015000" expanded="true" signature="117:493" ph="{...}" />
-            <marker date="1524283015000" expanded="true" signature="128:272" ph="&lt;div.../&gt;" />
-            <marker date="1524283015000" expanded="true" signature="277:426" ph="&lt;div.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/NewPollForm.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="28" column="25" lean-forward="false" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <marker date="1524287146000" expanded="true" signature="35:82" ph="@..." />
-            <marker date="1524287146000" expanded="true" signature="83:668" ph="&lt;script.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="170:355" ph="{...}" />
-            <marker date="1524287146000" expanded="true" signature="379:658" ph="{...}" />
-            <marker date="1524287146000" expanded="true" signature="425:477" ph="{...}" />
-            <marker date="1524287146000" expanded="true" signature="508:641" ph="{...}" />
-            <marker date="1524287146000" expanded="true" signature="701:2066" ph="@..." />
-            <marker date="1524287146000" expanded="true" signature="726:2066" ph="{...}" />
-            <marker date="1524287146000" expanded="true" signature="733:2064" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="770:1074" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="828:977" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="1083:1387" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="1141:1288" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="1396:1974" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="1465:1873" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="1682:1854" ph="&lt;div.../&gt;" />
-            <marker date="1524287146000" expanded="true" signature="1886:1940" ph="&lt;ul.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Option.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1524043755000" expanded="false" signature="6:58" ph="..." />
-            <marker date="1524043755000" expanded="true" signature="88:267" ph="{...}" />
-            <marker date="1524043755000" expanded="true" signature="114:265" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Poll.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding>
-            <marker date="1524289110000" expanded="true" signature="45:290" ph="{...}" />
-            <marker date="1524289110000" expanded="true" signature="69:288" ph="{...}" />
-            <marker date="1524289110000" expanded="true" signature="227:282" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BCClient/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1524289456000" expanded="false" signature="6:99" ph="..." />
-            <marker date="1524289456000" expanded="true" signature="119:2024" ph="{...}" />
-            <marker date="1524289456000" expanded="true" signature="148:2022" ph="{...}" />
-            <marker date="1524289456000" expanded="true" signature="201:2016" ph="{...}" />
-            <marker date="1524289456000" expanded="true" signature="387:501" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BCClient/NodesCache.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1524043867000" expanded="true" signature="18:62" ph="{...}" />
-            <marker date="1524043867000" expanded="true" signature="48:60" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BCClient/NodeClient.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <marker date="1524037746000" expanded="false" signature="6:109" ph="..." />
-            <marker date="1524037746000" expanded="true" signature="129:2500" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="173:2498" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="960:2134" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="986:1906" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="1052:1892" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="1193:1293" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="1377:1623" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="1495:1601" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="1786:1874" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="1938:2044" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="2210:2492" ph="{...}" />
-            <marker date="1524037746000" expanded="true" signature="2288:2482" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Answer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BCClient/BlockChainStatistics.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state relative-caret-position="180">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding>
-            <marker date="1524289110000" expanded="true" signature="6:59" ph="..." />
-            <marker date="1524289110000" expanded="true" signature="79:685" ph="{...}" />
-            <marker date="1524289110000" expanded="true" signature="119:683" ph="{...}" />
-            <marker date="1524289110000" expanded="true" signature="372:677" ph="{...}" />
-            <marker date="1524289110000" expanded="true" signature="588:667" ph="{...}" />
+            <marker date="1524372393000" expanded="false" signature="6:111" ph="..." />
+            <marker date="1524372393000" expanded="true" signature="131:770" ph="{...}" />
+            <marker date="1524372393000" expanded="true" signature="171:768" ph="{...}" />
+            <marker date="1524372393000" expanded="true" signature="457:762" ph="{...}" />
+            <marker date="1524372393000" expanded="true" signature="673:752" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BCClient/BlockChainStatisticsProvider.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
+        <state relative-caret-position="397">
           <caret line="48" column="72" lean-forward="false" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
           <folding>
-            <marker date="1524289593000" expanded="true" signature="6:150" ph="..." />
+            <marker date="1524289593000" expanded="false" signature="6:150" ph="..." />
             <marker date="1524289593000" expanded="true" signature="170:2623" ph="{...}" />
             <marker date="1524289593000" expanded="true" signature="218:2621" ph="{...}" />
             <marker date="1524289593000" expanded="true" signature="539:688" ph="{...}" />
@@ -817,180 +753,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BlockChainMachine/Core/Answer.cs">
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/ControlPanelController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+          <folding>
+            <marker date="1524376746000" expanded="false" signature="6:183" ph="..." />
+            <marker date="1524376746000" expanded="true" signature="218:2912" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="273:2910" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="565:677" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="734:1137" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="924:1023" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="1310:2725" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="1588:2105" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="1788:1981" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="2497:2596" ph="{...}" />
+            <marker date="1524376746000" expanded="true" signature="2788:2904" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Option.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding>
+            <marker date="1524377459000" expanded="false" signature="6:58" ph="..." />
+            <marker date="1524377459000" expanded="true" signature="88:366" ph="{...}" />
+            <marker date="1524377459000" expanded="true" signature="114:364" ph="{...}" />
+            <marker date="1524377459000" expanded="true" signature="261:358" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormVoting.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding>
+            <marker date="1524377459000" expanded="true" signature="74:118" ph="{...}" />
+            <marker date="1524377459000" expanded="true" signature="104:116" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormUser.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="32" />
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="10" selection-end-column="44" />
           <folding>
-            <marker date="1524289611000" expanded="true" signature="49:423" ph="{...}" />
-            <marker date="1524289611000" expanded="true" signature="86:421" ph="{...}" />
-            <marker date="1524289611000" expanded="true" signature="290:415" ph="{...}" />
+            <marker date="1524283015000" expanded="true" signature="74:242" ph="{...}" />
+            <marker date="1524283015000" expanded="true" signature="102:240" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BlockChainMachine/Core/IAnswer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="28" />
-          <folding>
-            <marker date="1524289660000" expanded="true" signature="18:164" ph="{...}" />
-            <marker date="1524289660000" expanded="true" signature="49:162" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/QuestionWithOptions.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/IQuestionProvider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="88" lean-forward="false" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
-          <folding>
-            <marker date="1524289660000" expanded="true" signature="6:59" ph="..." />
-            <marker date="1524289660000" expanded="true" signature="87:247" ph="{...}" />
-            <marker date="1524289660000" expanded="true" signature="128:245" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Infrastucture/IPollDbContext.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <marker date="1524289660000" expanded="false" signature="6:51" ph="..." />
-            <marker date="1524289660000" expanded="true" signature="88:232" ph="{...}" />
-            <marker date="1524289660000" expanded="true" signature="126:230" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Infrastucture/PollDbContext.cs">
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/FormPoll.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="40" />
+          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding>
-            <marker date="1524289660000" expanded="false" signature="6:99" ph="..." />
-            <marker date="1524289660000" expanded="true" signature="136:372" ph="{...}" />
-            <marker date="1524289660000" expanded="true" signature="181:370" ph="{...}" />
-            <marker date="1524289660000" expanded="true" signature="246:258" ph="{...}" />
+            <marker date="1524374048000" expanded="true" signature="74:250" ph="{...}" />
+            <marker date="1524374048000" expanded="true" signature="102:248" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/IRequestedPollsWithOptionsProvider.cs">
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/User.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Views/ControlPanel/Index.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="22" column="50" lean-forward="false" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
           <folding>
-            <marker date="1524290212000" expanded="true" signature="0:47" ph="@..." />
-            <marker date="1524290212000" expanded="true" signature="48:2883" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="113:713" ph="&lt;nav.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="238:516" ph="&lt;nav.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="290:501" ph="@..." />
-            <marker date="1524290212000" expanded="true" signature="348:487" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="718:2876" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="808:2865" ph="@..." />
-            <marker date="1524290212000" expanded="true" signature="862:2855" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="893:2841" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="965:1068" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="1089:2818" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="1137:1851" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="1211:1820" ph="&lt;form.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="1350:1672" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="1876:2686" ph="&lt;p.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="1983:2657" ph="@..." />
-            <marker date="1524290212000" expanded="true" signature="2009:2657" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="2108:2627" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="2179:2593" ph="&lt;div.../&gt;" />
-            <marker date="1524290212000" expanded="true" signature="2382:2550" ph="&lt;label.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/RequestedPollsWithOptionsProvider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Core/QuestionProvider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <marker date="1524290212000" expanded="false" signature="6:145" ph="..." />
-            <marker date="1524290212000" expanded="true" signature="173:1726" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="229:1724" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="426:522" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="634:1718" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="660:1572" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="691:933" ph="/* if (Validator.FieldIsValid(title, FieldType.Title) &amp;&amp; ... */" />
-            <marker date="1524290212000" expanded="true" signature="1031:1247" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="1337:1426" ph="{...}" />
-            <marker date="1524290212000" expanded="true" signature="1604:1670" ph="{...}" />
+            <marker date="1524043755000" expanded="true" signature="78:131" ph="{...}" />
+            <marker date="1524043755000" expanded="true" signature="117:129" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Question.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="51" />
           <folding>
-            <marker date="1524290761000" expanded="true" signature="6:111" ph="..." />
-            <marker date="1524290761000" expanded="true" signature="141:585" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="169:583" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="495:577" ph="{...}" />
+            <marker date="1524376453000" expanded="false" signature="6:111" ph="..." />
+            <marker date="1524376453000" expanded="true" signature="141:515" ph="{...}" />
+            <marker date="1524376453000" expanded="true" signature="169:513" ph="{...}" />
+            <marker date="1524376453000" expanded="true" signature="397:507" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/ControlPanelController.cs">
+    <entry file="file://$PROJECT_DIR$/ScaleVoting/Models/Poll.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="180">
+          <caret line="14" column="47" lean-forward="false" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="60" />
           <folding>
-            <marker date="1524290761000" expanded="true" signature="6:183" ph="..." />
-            <marker date="1524290761000" expanded="true" signature="218:2174" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="273:2172" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="565:677" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="734:1137" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="924:1023" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="1251:1987" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="1759:1858" ph="{...}" />
-            <marker date="1524290761000" expanded="true" signature="2050:2166" ph="{...}" />
+            <marker date="1524375264000" expanded="false" signature="6:74" ph="..." />
+            <marker date="1524375264000" expanded="true" signature="104:690" ph="{...}" />
+            <marker date="1524375264000" expanded="true" signature="128:688" ph="{...}" />
+            <marker date="1524375264000" expanded="true" signature="505:682" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ScaleVoting/Controllers/VotingController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="315">
+          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
           <folding>
-            <marker date="1524290852000" expanded="true" signature="6:97" ph="..." />
-            <marker date="1524290852000" expanded="true" signature="132:833" ph="{...}" />
-            <marker date="1524290852000" expanded="true" signature="181:831" ph="{...}" />
-            <marker date="1524290852000" expanded="true" signature="371:434" ph="{...}" />
-            <marker date="1524290852000" expanded="true" signature="500:825" ph="{...}" />
+            <marker date="1524377471000" expanded="true" signature="6:99" ph="..." />
+            <marker date="1524377471000" expanded="true" signature="134:1061" ph="{...}" />
+            <marker date="1524377471000" expanded="true" signature="183:1059" ph="{...}" />
+            <marker date="1524377471000" expanded="true" signature="375:438" ph="{...}" />
+            <marker date="1524377471000" expanded="true" signature="504:829" ph="{...}" />
+            <marker date="1524377471000" expanded="true" signature="928:1053" ph="{...}" />
           </folding>
         </state>
       </provider>

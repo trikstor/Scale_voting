@@ -6,11 +6,8 @@ namespace ScaleVoting.Models
     {
         [Required]
         public string Title { get; set; }
-
-        [Required]
-        public string Content { get; set; }
         
         [Required]
-        public string[] Options { get; set; }
+        public Poll[] Question { get; set; }
     }
 }

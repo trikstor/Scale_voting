@@ -35,7 +35,6 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="ScaleVoting" t="IncludeRecursive">
-        <e p=".dockerignore" t="Include" />
         <e p="app.config" t="Include" />
         <e p="App_Data" t="Include" />
         <e p="App_Start" t="Include">
@@ -67,8 +66,6 @@
           <e p="VotingController.cs" t="Include" />
         </e>
         <e p="Core" t="Include">
-          <e p="IQuestionProvider.cs" t="Include" />
-          <e p="QuestionProvider.cs" t="Include" />
           <e p="ValidationAndPreprocessing" t="Include">
             <e p="FieldPreprocessor.cs" t="Include" />
             <e p="FieldType.cs" t="Include" />
@@ -79,7 +76,6 @@
             <e p="MarkdownToHtmlProcessor.cs" t="Include" />
           </e>
         </e>
-        <e p="Dockerfile" t="Include" />
         <e p="Extensions" t="Include">
           <e p="Cryptography.cs" t="Include" />
         </e>
@@ -101,6 +97,7 @@
         <e p="Models" t="Include">
           <e p="FormPoll.cs" t="Include" />
           <e p="FormUser.cs" t="Include" />
+          <e p="FormVoting.cs" t="Include" />
           <e p="Option.cs" t="Include" />
           <e p="Poll.cs" t="Include" />
           <e p="Question.cs" t="Include" />

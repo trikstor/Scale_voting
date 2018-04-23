@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using ScaleVoting.Models;
 
 namespace BCClient
 {
     public class BlockChainStatistics
     {
+        [ForeignKey("Question")]
         public Question Question { get; }
         public IList<string> UserHashes { get; }
         public IDictionary<string, int> OptionsStatistics { get; }

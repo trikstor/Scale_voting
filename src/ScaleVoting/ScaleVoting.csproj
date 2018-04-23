@@ -52,6 +52,9 @@
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Autofac, Version=4.8.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
+      <HintPath>..\packages\Autofac.4.8.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac.Extensions.DependencyInjection, Version=4.2.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da">
       <HintPath>..\packages\Autofac.Extensions.DependencyInjection.4.2.2\lib\netstandard1.1\Autofac.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
@@ -190,6 +193,7 @@
     <Compile Include="Infrastucture\IPollDbContext.cs" />
     <Compile Include="Models\FormPoll.cs" />
     <Compile Include="Models\FormUser.cs" />
+    <Compile Include="Models\FormVoting.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\Poll.cs" />
     <Compile Include="Models\Question.cs" />
@@ -204,9 +208,7 @@
     <Compile Include="Core\ValidationAndPreprocessing\IFieldValidator.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\IPreprocessing.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\IPreprocessor.cs" />
-    <Compile Include="Core\IQuestionProvider.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\MarkdownToHtmlProcessor.cs" />
-    <Compile Include="Core\QuestionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -246,10 +248,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
     <None Include="Properties\PublishProfiles\scalevoting - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />

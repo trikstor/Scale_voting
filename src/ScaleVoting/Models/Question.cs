@@ -7,17 +7,16 @@ namespace ScaleVoting.Models
 {
     public class Question
     {
-        public string UserName { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
         [Key]
         public Guid Id { get; set; }
-        
+        public string Content { get; set; }
         public IEnumerable<Option> Options { get; set; }
 
-        public void SetOptionsFromContext(IEnumerable<Option> options)
+        public Question(string content, IEnumerable<Option> options)
         {
-            Options = options.Where(opt => opt.PollId == Id);
+            Guid.NewGuid();
+            Content = content;
+            Options = options;
         }
     }
 }

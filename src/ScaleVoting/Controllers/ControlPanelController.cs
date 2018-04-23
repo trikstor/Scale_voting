@@ -38,15 +38,34 @@ namespace ScaleVoting.Controllers
 
         [Authorize]
         [HttpPost]
-        public bool Index(string title, string content, string[] options)
+        public bool Index(
+            string title, string content, string[] questions, int[] optionPerQuestions, string[] options)
         {
-            var currentQuestion = QuestionProvider.CreatePoll(HttpContext.User.Identity.Name, title, content, options);
+            var processedOptions = options.Select(opt => new Option(opt)).ToArray();
+            var processedQuestions = new List<Question>();
+            var currentOptionPos = 0;
+            
+            for (var counter = 0; counter < questions.Length; counter++)
+            {
+                var optionForQuestion = new List<Option>();
+                
+                var optionsCounter = optionPerQuestions[counter];
+                while (optionsCounter > 0)
+                {
+                    optionForQuestion.Add(processedOptions[currentOptionPos]);
+                    currentOptionPos++;
+                    optionsCounter--;
+                }
+                
+                processedQuestions.Add(new Question(questions[counter], optionForQuestion));
+            }
+            
             var context = new PollDbContext();
             context.Questions.Add(currentQuestion);
             context.Options.AddRange(currentQuestion.Options);
             context.SaveChanges();
 
-            var questions = PollDbContext.Questions
+            var questions1 = PollDbContext.Questions
                 .Where(question => question.UserName == UserName);
             
             foreach (var question in questions)
