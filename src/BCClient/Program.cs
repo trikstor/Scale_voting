@@ -9,6 +9,7 @@ namespace BCClient
     {
         public static void Main(string[] args)
         {
+            /*
             var json = JsonConvert.SerializeObject(
                 new Answer("1", "aaaaa", "bbbbb");
             var nodeClient = new UstalovGeneralNodeClient()
@@ -38,6 +39,7 @@ namespace BCClient
             var sw = new StreamWriter("testTable.csv");
             new BlockChainRendererToCsv().Render(chain, sw);
             sw.Close();
+            */
         }
     }
 }

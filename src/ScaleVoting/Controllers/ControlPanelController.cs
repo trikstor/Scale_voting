@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using ScaleVoting.Core;
 using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;
 
@@ -10,19 +8,18 @@ namespace ScaleVoting.Controllers
 {
     public class ControlPanelController : Controller
     {
-        private IQuestionProvider QuestionProvider { get; }
         private IPollDbContext PollDbContext { get; }
         private string UserName => HttpContext.User.Identity.Name;
 
-        public ControlPanelController(IQuestionProvider questionProvider, IPollDbContext pollDbContext)
+        public ControlPanelController(IPollDbContext pollDbContext)
         {
-            QuestionProvider = questionProvider;
             PollDbContext = pollDbContext;
         }
 
         [Authorize]
         public ActionResult Index()
         {
+            /*
             var questions = PollDbContext.Questions
                 .Where(question => question.UserName == UserName);
             
@@ -33,6 +30,7 @@ namespace ScaleVoting.Controllers
 
             ViewBag.Questions = questions;
             //context.Dispose();
+            */
             return View();
         }
 
@@ -59,7 +57,7 @@ namespace ScaleVoting.Controllers
                 
                 processedQuestions.Add(new Question(questions[counter], optionForQuestion));
             }
-            
+            /*
             var context = new PollDbContext();
             context.Questions.Add(currentQuestion);
             context.Options.AddRange(currentQuestion.Options);
@@ -76,6 +74,7 @@ namespace ScaleVoting.Controllers
             ViewBag.Questions = questions;
                 
             //context.Dispose();
+            */
             return true;
         }
 

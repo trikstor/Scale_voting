@@ -3,16 +3,15 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using NLog;
 
-namespace BCClient
+namespace ScaleVoting.BlockChainClient.Client
 {
-    public class UstalovGeneralNodeClient
+    public class WebClient
     {
         public string[] AllNodeUri;
         public long TimeoutInMsec { get; set; }
         private TimeSpan Timeout => TimeSpan.FromMilliseconds(TimeoutInMsec / AllNodeUri.Length);
-        private ILogger Logger => LogManager.GetCurrentClassLogger();
+        //private ILogger Logger => LogManager.GetCurrentClassLogger();
 
         public async Task<string> GetResponseFromRequestTo(string requestPartOfUri) =>
             await GetResponseFromRequest(requestPartOfUri);
@@ -52,11 +51,11 @@ namespace BCClient
             }
             catch (Exception e)
             {
-                Logger.Error(e, "ошибка на клиенте получения данных с ноды");
+                //Logger.Error(e, "ошибка на клиенте получения данных с ноды");
             }
             throw new TimeoutException("Ни одна нода из заданных не ответила");
         }
-        
+
         private async Task<string> GetResponse(WebRequest request)
         {
             using (var response = await request.GetResponseAsync())

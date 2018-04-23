@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace ScaleVoting.Models
+namespace ScaleVoting.Domains
 {
     public class User : IdentityUser
     {

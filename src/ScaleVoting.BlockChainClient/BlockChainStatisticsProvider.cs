@@ -5,7 +5,7 @@ using NLog;
 using ScaleVoting.Extensions;
 using ScaleVoting.Models;
 
-namespace BCClient
+namespace ScaleVoting.BlockChainClient
 {
     public class BlockChainStatisticsProvider
     {

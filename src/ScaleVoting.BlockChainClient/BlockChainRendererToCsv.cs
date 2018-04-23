@@ -2,7 +2,7 @@
 using BlockChainMachine.Core;
 using CsvHelper;
 
-namespace BCClient
+namespace ScaleVoting.BlockChainClient
 {
     public class BlockChainRendererToCsv
     {

@@ -10,7 +10,7 @@ namespace ScaleVoting.Controllers
         private IPollDbContext PollDbContext { get; }
         private string UserName => HttpContext.User.Identity.Name;
 
-        public VotingController(IPollDbContext pollDbContext, )
+        public VotingController(IPollDbContext pollDbContext)
         {
             PollDbContext = pollDbContext;
         }
@@ -18,6 +18,7 @@ namespace ScaleVoting.Controllers
         [Authorize]
         public ActionResult Index(string id)
         {
+            /*
             var question = PollDbContext.Questions
                 .Where(q => q.Id.ToString() == id)
                 .ToArray()
@@ -26,16 +27,18 @@ namespace ScaleVoting.Controllers
             question.SetOptionsFromContext(PollDbContext.Options);
 
             ViewBag.Question = question;
-
+            */
             return View();
         }
         
         [Authorize]
         public ActionResult Index(string id, string[] checkedOptions)
         {
+            /*
             var poll = new Poll();
             
             poll.Statistics =
+            */
             return View();
         }
     }

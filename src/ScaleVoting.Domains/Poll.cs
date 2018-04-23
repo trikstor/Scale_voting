@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using BCClient;
 
-namespace ScaleVoting.Models
+namespace ScaleVoting.Domains
 {
     public class Poll
     {
@@ -12,7 +11,7 @@ namespace ScaleVoting.Models
         public User User { get; set; }
         public DateTime CreationDate { get; set; }
         public Question[] Questions { get; set;  }
-        public BlockChainStatistics Statistics { get; set; }
+        //public BlockChainStatistics Statistics { get; set; }
         
         public Poll(User user, string title, Question[] questions)
         {

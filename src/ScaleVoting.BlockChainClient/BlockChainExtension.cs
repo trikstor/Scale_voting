@@ -1,7 +1,6 @@
 ﻿using System;
-using BlockChainMachine.Core;
 
-namespace BCClient
+namespace ScaleVoting.BlockChainClient
 {
     public class BlockChainExtension
     {

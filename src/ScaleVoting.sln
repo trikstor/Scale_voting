@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting", "ScaleVoting\ScaleVoting.csproj", "{FDF125AD-8015-4C82-94B3-943614818A53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCClient", "BCClient\BCClient.csproj", "{6809B954-21AC-4CAD-9CE1-F3666799381B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.BlockChainClient", "ScaleVoting.BlockChainClient\ScaleVoting.BlockChainClient.csproj", "{F8468044-FC23-40B8-A5C9-972643B0F725}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockChainMachine", "BlockChainMachine\BlockChainMachine.csproj", "{0F038B3F-77DB-45C1-B84C-EA416E8F2898}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.Domains", "ScaleVoting.Domains\ScaleVoting.Domains.csproj", "{92DFDEB6-370B-4580-BDB5-596456BC8EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.Infrastucture", "ScaleVoting.Infrastucture\ScaleVoting.Infrastucture.csproj", "{A5633961-D1A2-48D8-B57E-9C39646D4684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.Extensions", "ScaleVoting.Extensions\ScaleVoting.Extensions.csproj", "{CF765818-8E92-4D59-ADB6-26942DA587B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +23,22 @@ Global
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6809B954-21AC-4CAD-9CE1-F3666799381B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F038B3F-77DB-45C1-B84C-EA416E8F2898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8468044-FC23-40B8-A5C9-972643B0F725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8468044-FC23-40B8-A5C9-972643B0F725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8468044-FC23-40B8-A5C9-972643B0F725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8468044-FC23-40B8-A5C9-972643B0F725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5633961-D1A2-48D8-B57E-9C39646D4684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5633961-D1A2-48D8-B57E-9C39646D4684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5633961-D1A2-48D8-B57E-9C39646D4684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5633961-D1A2-48D8-B57E-9C39646D4684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

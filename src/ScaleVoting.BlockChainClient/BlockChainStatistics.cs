@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using ScaleVoting.Domains;
 using ScaleVoting.Models;
 
-namespace BCClient
+namespace ScaleVoting.BlockChainClient
 {
     public class BlockChainStatistics
     {
+        private Question question;
+        private string[] allowedOptions;
+
         [ForeignKey("Question")]
         public Question Question { get; }
         public IList<string> UserHashes { get; }
@@ -21,6 +25,12 @@ namespace BCClient
             {
                 OptionsStatistics[pollOption] = 0;
             }
+        }
+
+        public BlockChainStatistics(Question question, string[] allowedOptions)
+        {
+            this.question = question;
+            this.allowedOptions = allowedOptions;
         }
     }
 }
