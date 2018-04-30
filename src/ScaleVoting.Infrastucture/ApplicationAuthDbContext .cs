@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using ScaleVoting.Models;
+using ScaleVoting.Domains;
 
 namespace ScaleVoting.Infrastucture
 {

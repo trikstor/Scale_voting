@@ -1,4 +1,4 @@
-﻿namespace ScaleVoting.BlockChainClient.Client
+﻿namespace ScaleVoting.BlockChainClient.Transaction
 {
     class Transaction : ITransaction
     {

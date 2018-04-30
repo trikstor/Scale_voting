@@ -1,15 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using ScaleVoting.Models;
+﻿using System.Data.Entity;
+using ScaleVoting.Domains;
 
 namespace ScaleVoting.Infrastucture
 {
     public class PollDbContext : DbContext
     {
         public PollDbContext() : base("name=PollDatabase")
-        { }
-        public DbSet<Question> Questions { get; set; }
-        public DbSet<Option> Options { get; set; }
+        {
+        }
+
+        public DbSet<Poll> Polls { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Poll>()
+                .HasMany(s => s.Questions)
+                .WithRequired(s => s.ParentPoll)
+                .HasForeignKey(s => s.ParentPollId);
+
+            modelBuilder.Entity<Question>()
+                .HasMany(s => s.Options)
+                .WithRequired(s => s.ParentQuestion)
+                .HasForeignKey(s => s.ParentQuestionId);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

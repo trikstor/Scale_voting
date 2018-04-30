@@ -5,6 +5,7 @@ using System.Web.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using ScaleVoting.Domains;
 using ScaleVoting.Extensions;
 using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;

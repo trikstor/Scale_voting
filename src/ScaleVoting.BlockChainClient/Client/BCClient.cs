@@ -1,43 +1,44 @@
 ﻿using Newtonsoft.Json;
 using ScaleVoting.Domains;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ScaleVoting.BlockChainClient.Client
 {
-    public class BlockChainClient
+    public class BCClient
     {
         private WebClient Client { get; }
         private IBlockChainCorrector BlockChainCorrector { get; }
-        public BlockChainClient(IBlockChainCorrector blockChainCorrector)
+        public BCClient()
         {
-            BlockChainCorrector = blockChainCorrector;
             Client = new WebClient
             {
-                AllNodeUri = NodeReplics.NodeReplicsAddresses.ToArray(),
-                TimeoutInMsec = int.Parse(ConfigurationManager.AppSettings["ReplicWaitingMsec"])
+                AllNodeUri = NodeReplics.NodeReplicsAddresses,
+                TimeoutInMsec = 2000
             };
+
+            BlockChainCorrector = new BlockChainCorrector();
         }
 
         public async Task<IEnumerable<Answer>> GetChain()
         {
             var blocks = await GetChainBlocks();
-            var transactions = blocks
-                .Select(block => block.Transactions)
-                .SelectMany(trans => trans);
+            blocks = BlockChainCorrector.Fix(blocks.ToArray());
+            var transactions = BlockChainExtension.ConvertBlocksToTransactions(blocks);
             var answers = transactions.Select(trans => JsonConvert.DeserializeObject<Answer>(trans.Data));
 
-            return BlockChainCorrector.Fix(answers);
+            return answers;
         }
 
         private async Task<IEnumerable<Block>> GetChainBlocks()
         {
             var jsonChain = await Client.GetResponseFromRequestTo(NodeApi.Chain);
-            var blocks = JsonConvert.DeserializeObject<Block[]>(jsonChain);
+            var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.None };
+            settings.Converters.Add(new TransactionConverter());
+            var blocks = JsonConvert.DeserializeObject<Block[]>(jsonChain, settings);
 
-            return BlockChainCorrector.Fix(blocks);
+            return blocks;
         }
 
         public async Task<string> SetAnswerToBlockChain(Answer answer)
@@ -46,10 +47,11 @@ namespace ScaleVoting.BlockChainClient.Client
             {
                 Data = JsonConvert.SerializeObject(answer),
                 HasValidData = true,
-                UserHash = "",
+                UserHash = answer.UserHash,
                 Signature = new byte[10]
             };
-            var jsonTransaction = JsonConvert.SerializeObject(transaction);
+            var jsonTransaction = JsonConvert.SerializeObject(transaction,
+                new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
             return await Client.GetResponseFromRequestWithJsonTo(
                 NodeApi.NewTransaction, jsonTransaction);

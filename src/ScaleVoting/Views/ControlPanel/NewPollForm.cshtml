@@ -1,50 +1,52 @@
 ﻿@model ScaleVoting.Models.FormPoll
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(false)
 @{
     ViewBag.Title = "Создать новый опрос";
 }
-    <script language="javascript">
-        var questions = new Object();
-        var questionId = 0;
+<script language="javascript">
+    var questions = new Array();
+    var questionId = 0;
 
-        function addQuestion() {
-            $('#questions')
-                .append('<li class="list-group-item"><input type="text" name="' + questionId + '" />' + 
-                        '<button onclick="addOption(' + questionId + ');" class="btn btn-primary">Добавить</button><br/>' + 
-                        $('input[name=questionTitle]').val() + '<div id="' + questionId + '"></div></li>');
-            questions[questionId] = new Object();
-            questions[questionId].title = $('input[name=questionTitle]').val();
-            questions[questionId].options = new Array();
-            questionId++;
-        }
+    function addQuestion() {
+        $('#questions')
+            .append('<li class="list-group-item"><input type="text" name="' +
+                questionId +
+                '" />' +
+                '<button type="button" class="btn btn-primary" onclick="addOption(' +
+                questionId +
+                ');">Добавить</button><br/>' +
+                $('input[name=questionTitle]').val() +
+                '<div id="' +
+                questionId +
+                '"></div></li>');
+        questions[questionId] = new Object();
+        questions[questionId].title = $('input[name=questionTitle]').val();
+        questions[questionId].options = new Array();
+        questionId++;
+    }
 
-        function addOption(optionId) {
-            $('#' + optionId)
-                .append('<li class="list-group-item">' + $('input[name=' + optionId + ']').val() + '</li>');
-            
-            questions[optionId].options.push($('input[name=' + optionId + ']').val());
-        }
+    function addOption(optionId) {
+        $('#' + optionId)
+            .append('<li class="list-group-item">' + $('input[name=' + optionId + ']').val() + '</li>');
+        questions[optionId].options.push($('input[name=' + optionId + ']').val());
+    }
 
-        function submit() {
-            var jsonPoll = JSON.stringify(questions);
-            $.post("/ControlPanel",
-                {
-                },
-                function(result) {
-                    if(result)
-                    {
-                        location.replace('/ControlPanel');
-                    }
-                }
-            );
-        }
-    </script>
-        
-    <div class="jumbotron w-75">
+    function captcha() {
+        var jsonQuestions = JSON.stringify(questions);
+        $('#JsonQuestions').val(jsonQuestions);
+        $('#captcha').append('<button type="submit" class="btn btn-primary">Подтвердить отправку</button>');
+    }
+</script>
+
+<div class="jumbotron w-75">
+    @using (Html.BeginForm())
+        {
         <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Заголовок опроса</span>
             </div>
-            <input type="text" />
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
         </div>
         <div class="mt-5">
             <h4>Вопросы</h4>
@@ -57,5 +59,9 @@
             <ul id="questions" class="list-group">
             </ul>
         </div>
-        <button onclick="submit();" class="btn btn-primary">Отправить</button>
+        @Html.HiddenFor(model => model.JsonQuestions)
+        <button type="button" onclick="captcha();" class="btn btn-primary">Отправить</button>
+        <div id="captcha">
+        </div>
+    }
     </div>

@@ -1,18 +1,19 @@
-﻿using System;
+﻿using ScaleVoting.BlockChainClient.Transaction;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ScaleVoting.BlockChainClient
 {
-    public class BlockChainExtension
+    public static class BlockChainExtension
     {
-        public Block[] blockChain { get; }
-
-        public int GetBlockIndexWithTimestamp(TimeSpan timestamp)
+        public static int GetBlockIndexWithTimestamp(this Block[] blockChain, string timestamp)
         {
             const int step = 3;
 
             for (var counter = 0; counter < blockChain.Length; counter += step)
             {
-                if (TimeSpan.Parse(blockChain[counter].TimeStamp) < timestamp)
+                if (TimeSpan.Parse(blockChain[counter].TimeStamp) < TimeSpan.Parse(timestamp))
                 {
                     continue;
                 }
@@ -20,7 +21,7 @@ namespace ScaleVoting.BlockChainClient
                 var limit = counter >= step ? counter - step : 0;
                 while (counter > limit)
                 {
-                    if (TimeSpan.Parse(blockChain[counter].TimeStamp) <= timestamp)
+                    if (TimeSpan.Parse(blockChain[counter].TimeStamp) <= TimeSpan.Parse(timestamp))
                     {
                         return counter;
                     }
@@ -28,6 +29,13 @@ namespace ScaleVoting.BlockChainClient
                 }
             }
             return -1;
+        }
+
+        public static IEnumerable<ITransaction> ConvertBlocksToTransactions(IEnumerable<Block> blocks)
+        {
+            return blocks
+                .Select(block => block.Transactions)
+                .SelectMany(trans => trans);
         }
     }
 }

@@ -1,89 +1,73 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using ScaleVoting.Domains;
 using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;
+using ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators;
+using System;
+using ScaleVoting.Models.ValidationAndPreprocessing;
 
 namespace ScaleVoting.Controllers
 {
     public class ControlPanelController : Controller
     {
-        private IPollDbContext PollDbContext { get; }
+        private PollDbContext PollDbContext { get; }
+        private PollValidator PollValidator { get; }
         private string UserName => HttpContext.User.Identity.Name;
 
-        public ControlPanelController(IPollDbContext pollDbContext)
+        public ControlPanelController()
         {
-            PollDbContext = pollDbContext;
+            PollDbContext = new PollDbContext();
+            PollValidator = new PollValidator(new FieldValidator());
         }
 
         [Authorize]
         public ActionResult Index()
         {
-            /*
-            var questions = PollDbContext.Questions
-                .Where(question => question.UserName == UserName);
-            
-            foreach (var question in questions)
-            {
-                question.SetOptionsFromContext(PollDbContext.Options);
-            }
+            ViewBag.Polls = PollDbContext.Polls.ToList();
 
-            ViewBag.Questions = questions;
-            //context.Dispose();
-            */
             return View();
-        }
-
-        [Authorize]
-        [HttpPost]
-        public bool Index(
-            string title, string content, string[] questions, int[] optionPerQuestions, string[] options)
-        {
-            var processedOptions = options.Select(opt => new Option(opt)).ToArray();
-            var processedQuestions = new List<Question>();
-            var currentOptionPos = 0;
-            
-            for (var counter = 0; counter < questions.Length; counter++)
-            {
-                var optionForQuestion = new List<Option>();
-                
-                var optionsCounter = optionPerQuestions[counter];
-                while (optionsCounter > 0)
-                {
-                    optionForQuestion.Add(processedOptions[currentOptionPos]);
-                    currentOptionPos++;
-                    optionsCounter--;
-                }
-                
-                processedQuestions.Add(new Question(questions[counter], optionForQuestion));
-            }
-            /*
-            var context = new PollDbContext();
-            context.Questions.Add(currentQuestion);
-            context.Options.AddRange(currentQuestion.Options);
-            context.SaveChanges();
-
-            var questions1 = PollDbContext.Questions
-                .Where(question => question.UserName == UserName);
-            
-            foreach (var question in questions)
-            {
-                question.SetOptionsFromContext(PollDbContext.Options);
-            }
-
-            ViewBag.Questions = questions;
-                
-            //context.Dispose();
-            */
-            return true;
         }
 
         [Authorize]
         public ActionResult NewPollForm()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult NewPollForm(FormPoll poll)
+        {
+            try
+            {
+                var formQuestions = JsonConvert.DeserializeObject<FormQuestion[]>(poll.JsonQuestions);
+                var newPoll = new Poll(UserName, poll.Title);
+
+                newPoll.Questions = formQuestions
+                    .Select(question => new Question(newPoll, question.Title, question.Options))
+                    .ToArray();
+
+                string message;
+                if (!PollValidator.PollIsValid(newPoll, out message))
+                {
+                    ModelState.AddModelError("", message);
+                    return View(poll);
+                }
+
+                PollDbContext.Polls.Add(newPoll);
+                PollDbContext.SaveChanges();
+
+                ViewBag.Polls = PollDbContext.Polls.ToList();
+
+                return Redirect("/ControlPanel");
+            }
+            catch (Exception e)
+            {
+                //TODO: Логгирование
+                return View();
+            }
         }
     }
 }

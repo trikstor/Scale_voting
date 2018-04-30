@@ -4,9 +4,7 @@ namespace ScaleVoting.BlockChainClient.Client
 {
     public class NodeApi
     {
-        public static readonly string Chain =
-            ConfigurationManager.AppSettings["GetChainRequest"];
-        public static readonly string NewTransaction =
-            ConfigurationManager.AppSettings["NewTransactionRequest"];
+        public static readonly string Chain = "/bc/chain";
+        public static readonly string NewTransaction = "/bc/newtrans";
     }
 }

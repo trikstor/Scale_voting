@@ -4,6 +4,6 @@ namespace ScaleVoting.BlockChainClient.Client
 {
     public class NodeReplics
     {
-        public static readonly IEnumerable<string> NodeReplicsAddresses = new List<string> { };
+        public static readonly string[] NodeReplicsAddresses = new [] { "http://127.0.0.1:3344" };
     }
 }

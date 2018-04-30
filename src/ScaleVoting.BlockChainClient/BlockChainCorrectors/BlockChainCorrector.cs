@@ -3,61 +3,66 @@ using ScaleVoting.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ScaleVoting.BlockChainClient.Client
+namespace ScaleVoting.BlockChainClient.BlockChainCorrectors
 {
     public class BlockChainCorrector : IBlockChainCorrector
     {
-        public Question Question { get; }
-        public string[] AllowedOptions { get; }
         private IList<string> VotedUsersHashes { get; }
 
-        public BlockChainCorrector(Question question, string[] allowedOptions)
+        public BlockChainCorrector()
         {
-            Question = question;
-            AllowedOptions = allowedOptions;
             VotedUsersHashes = new List<string>();
         }
 
-        public IEnumerable<Block> Fix(IEnumerable<Block> blockChain)
+        public IEnumerable<Block> Fix(Block[] blockChain)
         {
             var result = new List<Block>();
-
-            var preBlockHash = "genesis";
+            var preBlock = default(Block);
 
             foreach (var block in blockChain)
             {
-                if (preBlockHash != "genesis")
+                if (preBlock != default(Block) && preBlock.PreviousHash != "genesis")
                 {
-                    if (Cryptography.Sha256(block.ToString()) != preBlockHash)
+                    if (Cryptography.Sha256(preBlock.ToString()) != block.PreviousHash)
                     {
+                        preBlock = block;
                         continue;
                     }
                 }
                 else
                 {
-                    preBlockHash = block.PreviousHash;
+                    preBlock = block;
+                    continue;
                 }
+                preBlock = block;
 
                 foreach (var transaction in block.Transactions)
                 {
+                    /*
                     if (VotedUsersHashes.Contains(transaction.UserHash))
                     {
                         continue;
                     }
                     VotedUsersHashes.Add(transaction.UserHash);
+                    */
                 }
                 result.Add(block);
             }
             return result;
         }
 
-        public IEnumerable<Answer> Fix(IEnumerable<Answer> answers)
+        public IEnumerable<Answer> Fix(Question question, IEnumerable<Answer> answers)
         {
             var result = new List<Answer>();
 
-            foreach(var answer in answers)
+            foreach (var answer in answers)
             {
-                
+                if (!question.Options.Any(opt => opt.Id == answer.OptionId) ||
+                    question.Id != answer.QuestionId)
+                {
+                    continue;
+                }
+                result.Add(answer);
             }
 
             return result;

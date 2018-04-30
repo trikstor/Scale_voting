@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using ScaleVoting.Extensions;
 
 namespace ScaleVoting.Domains
 {
@@ -8,18 +10,30 @@ namespace ScaleVoting.Domains
         [Key]
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public User User { get; set; }
-        public DateTime CreationDate { get; set; }
-        public Question[] Questions { get; set;  }
+        public string UserName { get; set; }
+        public string Timestamp { get; set; }
+        public virtual ICollection<Question> Questions { get; set;  }
         //public BlockChainStatistics Statistics { get; set; }
-        
-        public Poll(User user, string title, Question[] questions)
+
+        public Poll()
         {
-            user = User;
+            
+        }
+        public Poll(string userName, string title)
+        {
+            UserName = userName;
+            Title = title;
+            Id = Guid.NewGuid();
+            Timestamp = TimeStamp.Get(DateTime.Now);
+        }
+
+        public Poll(string userName, string title, Question[] questions)
+        {
+            UserName = userName;
             Title = title;
             Questions = questions;
-            Id = new Guid();
-            CreationDate = DateTime.Now;
+            Id = Guid.NewGuid();
+            Timestamp = TimeStamp.Get(DateTime.Now);
         }
     }
 }
