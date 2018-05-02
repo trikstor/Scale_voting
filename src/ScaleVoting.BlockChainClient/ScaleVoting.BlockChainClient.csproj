@@ -53,6 +53,8 @@
     <Compile Include="BlockChainCorrectors\BlockChainCorrector.cs" />
     <Compile Include="BlockChainExtension.cs" />
     <Compile Include="BlockChainCorrectors\IBlockChainCorrector.cs" />
+    <Compile Include="Statistics\IStatisticsProvider.cs" />
+    <Compile Include="Statistics\PollStatisticsProvider.cs" />
     <Compile Include="Transaction\ITransaction.cs" />
     <Compile Include="Client\NodeApi.cs" />
     <Compile Include="Client\WebClient.cs" />

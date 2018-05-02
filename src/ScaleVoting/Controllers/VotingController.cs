@@ -27,7 +27,10 @@ namespace ScaleVoting.Controllers
         {
             var poll = GetPollWithId(id);
             ViewBag.Poll = poll;
-            ViewBag.Statistics = await GetStatistics(poll.Questions);
+            var statisticTask = await BCClient.GetChain();
+            var corretor = new BlockChainCorrector();
+            question.Answers = corretor.Fix(question, statisticTask);
+            ViewBag.Statistics = await GetStatistics(poll);
 
             return View();
         }
@@ -49,7 +52,10 @@ namespace ScaleVoting.Controllers
             }
 
             ViewBag.Poll = poll;
-            ViewBag.Statistics = await GetStatistics(poll.Questions);
+            var statisticTask = await BCClient.GetChain();
+            var corretor = new BlockChainCorrector();
+            question.Answers = corretor.Fix(question, statisticTask);
+            ViewBag.Statistics = await GetStatistics(poll);
 
             return View(model);
         }
@@ -60,18 +66,6 @@ namespace ScaleVoting.Controllers
                 .Where(q => q.Id.ToString() == id)
                 .ToList()
                 .First();
-        }
-
-        private async Task<IEnumerable<Question>> GetStatistics(IEnumerable<Question> questions)
-        {
-            var statisticTask = await BCClient.GetChain();
-            var corretor = new BlockChainCorrector();
-            foreach (var question in questions)
-            {
-                question.Answers = corretor.Fix(question, statisticTask);
-                question.TotalAnswer = new TotalAnswer(question);
-            }
-            return questions;
         }
     }
 }

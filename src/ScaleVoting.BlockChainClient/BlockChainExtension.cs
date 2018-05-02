@@ -1,4 +1,6 @@
-﻿using ScaleVoting.BlockChainClient.Transaction;
+﻿using Newtonsoft.Json;
+using ScaleVoting.BlockChainClient.Transaction;
+using ScaleVoting.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +38,17 @@ namespace ScaleVoting.BlockChainClient
             return blocks
                 .Select(block => block.Transactions)
                 .SelectMany(trans => trans);
+        }
+
+        public static ITransaction ToTransaction(this Answer answer)
+        {
+            return new Transaction.Transaction
+            {
+                Data = JsonConvert.SerializeObject(answer),
+                HasValidData = true,
+                UserHash = answer.UserHash,
+                Signature = new byte[10]
+            };
         }
     }
 }
