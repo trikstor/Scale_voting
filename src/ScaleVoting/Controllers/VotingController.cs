@@ -12,22 +12,21 @@ namespace ScaleVoting.Controllers
 {
     public class VotingController : Controller
     {
-        private PollDbContext PollDbContext { get; }
+        private PollDbManager PollDbManager { get; }
         private BCClient BCClient { get; }
         private string UserName => HttpContext.User.Identity.Name;
 
         public VotingController()
         {
-            PollDbContext = new PollDbContext();
+            PollDbManager = new PollDbManager();
             BCClient = new BCClient();
         }
 
         [Authorize]
         public async Task<ActionResult> Index(string id)
         {
-            var poll = GetPollWithId(id);
-            ViewBag.Poll = poll;
-            ViewBag.Statistics = await GetStatistics(poll.Questions);
+            var poll = PollDbManager.GetPollWithId(id);
+            ViewBag.Poll = await GetPollWithStatistics(poll);
 
             return View();
         }
@@ -36,7 +35,7 @@ namespace ScaleVoting.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(string id, FormVoting model)
         {
-            var poll = GetPollWithId(id);
+            var poll = PollDbManager.GetPollWithId(id);
 
             var counter = 0;
             foreach (var question in poll.Questions)
@@ -48,30 +47,22 @@ namespace ScaleVoting.Controllers
                 counter++;
             }
 
-            ViewBag.Poll = poll;
-            ViewBag.Statistics = await GetStatistics(poll.Questions);
+            ViewBag.Poll = await GetPollWithStatistics(poll);
 
             return View(model);
         }
 
-        private Poll GetPollWithId(string id)
+        private async Task<Poll> GetPollWithStatistics(Poll poll)
         {
-            return PollDbContext.Polls
-                .Where(q => q.Id.ToString() == id)
-                .ToList()
-                .First();
-        }
-
-        private async Task<IEnumerable<Question>> GetStatistics(IEnumerable<Question> questions)
-        {
-            var statisticTask = await BCClient.GetChain();
+            var statisticTask = await BCClient.GetChain(poll.Timestamp);
+            var tt = statisticTask.ToList();
             var corretor = new BlockChainCorrector();
-            foreach (var question in questions)
+            for(var counter = 0; counter < poll.Questions.Count; counter++)
             {
-                question.Answers = corretor.Fix(question, statisticTask);
-                question.TotalAnswer = new TotalAnswer(question);
+                poll.Questions[counter].Answers = corretor.Fix(poll.Questions[counter], statisticTask);
             }
-            return questions;
+
+            return poll;
         }
     }
 }

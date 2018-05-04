@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ScaleVoting.Domains
 {
-    public class Option : IComparable<Option>
+    public class Option
     {
         [Key]
         public Guid Id { get; set; }
@@ -25,12 +25,18 @@ namespace ScaleVoting.Domains
             OptionContent = optionContent;
         }
 
-        public int CompareTo(Option other)
+        public override bool Equals(object obj)
         {
-            if (Id == other.Id)
-            {
-                return 0;
-            }
+            return Equals((Option)obj);
+        }
+
+        public bool Equals(Option other)
+        {
+            return other.Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
             return 1;
         }
     }

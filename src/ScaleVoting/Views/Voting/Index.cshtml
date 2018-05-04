@@ -13,7 +13,7 @@
             @Html.Raw(poll.Title)
         </div>
         <p class="card-text">
-            @{ 
+            @{
                 var counter = 0;
             }
             @foreach (var question in poll.Questions)
@@ -22,8 +22,8 @@
                 foreach (var option in question.Options)
                 {
                     <div class="form-check">
-                       @Html.RadioButtonFor(model => model.Answers[counter], (object)option.Key)
-                        <label class="form-check-label" for="@Html.Raw(option.Key)">
+                        @Html.RadioButtonFor(model => model.Answers[counter], (object)option.Id)
+                        <label class="form-check-label" for="@Html.Raw(option.Id)">
                             @Html.Raw(option.OptionContent)
                         </label>
                     </div>
@@ -33,18 +33,34 @@
         </p>
         <button type="submit" class="btn btn-primary">Голосовать</button>
     </div>
-}
+                }
 
 <div class="card-text">
-    @foreach(var question  in ViewBag.Statistics)
-    {
-        <b>@Html.Raw(question.Title)</b>
-        <ui>
-        @foreach(var option in question.TotalAnswer.Statistics)
+    <div class="row-fluid">
+        @if (poll.Questions != null)
         {
-            <li>@Html.Raw(option.Key.OptionContent) - @Html.Raw(option.Value)</li>
+            foreach (var question in poll.Questions)
+            {
+                <div class="span4">
+                    <b>@Html.Raw(question.Title)</b>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Название опции</th>
+                                <th>Количество голосов</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var option in question.TotalAnswer.Statistics)
+                            {
+                                <tr>
+                                    <td>@Html.Raw(option.Key.OptionContent)</td>
+                                    <td>@Html.Raw(option.Value)</td>
+                                </tr>
+                            }
+                    </table>
+                </div>
+            }
         }
-        </ui>
-        <br/>
-    }
+    </div>
 </div>

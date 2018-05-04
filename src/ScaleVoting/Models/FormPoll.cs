@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ScaleVoting.Domains;
 
 namespace ScaleVoting.Models
 {
     public class FormPoll
     {
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string  JsonQuestions { get; set; }
     }
 }

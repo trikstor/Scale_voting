@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using ScaleVoting.Domains;
+using ScaleVoting.Models.ValidationAndPreprocessing;
 
-namespace ScaleVoting.Models.ValidationAndPreprocessing
+namespace ScaleVoting.Core.ValidationAndPreprocessing
 {
     public interface IFieldValidator
     {
         bool FieldIsValid(string field, FieldType fieldType);
-        bool OptionsListIsValid(List<string> options);
+        bool OptionsListIsValid(IEnumerable<Option> options);
     }
 }

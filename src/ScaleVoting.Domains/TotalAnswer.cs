@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ScaleVoting.Domains
 {
@@ -17,9 +18,12 @@ namespace ScaleVoting.Domains
                 Statistics[pollOption] = 0;
             }
 
-            foreach (var answer in Question.Answers)
+            if (Question.Answers != null && Question.Answers.Count() != 0)
             {
-                Statistics[answer.Option]++;
+                foreach (var answer in Question.Answers)
+                {
+                    Statistics[answer.Option]++;
+                }
             }
         }
     }

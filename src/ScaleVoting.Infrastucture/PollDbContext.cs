@@ -19,6 +19,7 @@ namespace ScaleVoting.Infrastucture
                 .HasForeignKey(s => s.ParentPollId);
 
             modelBuilder.Entity<Question>()
+                .Ignore(s => s.TotalAnswer)
                 .HasMany(s => s.Options)
                 .WithRequired(s => s.ParentQuestion)
                 .HasForeignKey(s => s.ParentQuestionId);

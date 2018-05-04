@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace ScaleVoting.Domains
 {
@@ -11,13 +11,22 @@ namespace ScaleVoting.Domains
         [Key]
         public Guid Id { get; set; }
         public Guid ParentPollId { get; set; }
-        [NonSerialized]
-        public IEnumerable<Answer> Answers;
-        [NonSerialized]
-        public TotalAnswer TotalAnswer;
+        private IEnumerable<Answer> answers;
+        [JsonIgnore]
+        public IEnumerable<Answer> Answers
+        {
+            set
+            {
+                answers = value;
+                TotalAnswer = new TotalAnswer(this);
+            }
+            get => answers;
+        }
+        [JsonIgnore]
+        public TotalAnswer TotalAnswer { get; private set; }
         public virtual Poll ParentPoll { get; set; }
         public string Title { get; set; }
-        public virtual ICollection<Option> Options { get; set; }
+        public virtual IList<Option> Options { get; set; }
 
         public Question()
         {

@@ -1,5 +1,4 @@
-﻿using ScaleVoting.Domains;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ScaleVoting.Models

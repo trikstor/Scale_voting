@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace ScaleVoting.Domains
 {
@@ -13,8 +12,7 @@ namespace ScaleVoting.Domains
         public string UserHash { get; set; }
 
         public Answer()
-        {
-            
+        {      
         }
 
         public Answer(Question question, Option option, string user)

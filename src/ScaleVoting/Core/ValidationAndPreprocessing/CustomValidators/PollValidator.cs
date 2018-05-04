@@ -27,7 +27,7 @@ namespace ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators
                     message = $"Заголовок '{question.Title}' должен быть меньше 150 символов.";
                     return false;
                 }
-                if (!FieldValidator.OptionsListIsValid(question.Options.Select(opt => opt.OptionContent).ToList()))
+                if (!FieldValidator.OptionsListIsValid(question.Options))
                 {
                     message = "Вариантов ответа должно быть не более 50 и не менее 2, " +
                         "недопустимо повторение вариантов ответа в одном вопросе";

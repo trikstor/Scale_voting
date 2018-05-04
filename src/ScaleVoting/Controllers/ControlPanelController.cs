@@ -12,20 +12,21 @@ namespace ScaleVoting.Controllers
 {
     public class ControlPanelController : Controller
     {
-        private PollDbContext PollDbContext { get; }
+        private PollDbManager PollDbManager { get; }
         private PollValidator PollValidator { get; }
         private string UserName => HttpContext.User.Identity.Name;
 
         public ControlPanelController()
         {
-            PollDbContext = new PollDbContext();
+            PollDbManager = new PollDbManager();
             PollValidator = new PollValidator(new FieldValidator());
         }
 
         [Authorize]
         public ActionResult Index()
         {
-            ViewBag.Polls = PollDbContext.Polls.ToList();
+            ViewBag.Polls = PollDbManager.GetPolls()
+                .Where(poll => poll.CreatorName == UserName);
 
             return View();
         }
@@ -49,17 +50,14 @@ namespace ScaleVoting.Controllers
                     .Select(question => new Question(newPoll, question.Title, question.Options))
                     .ToArray();
 
-                string message;
-                if (!PollValidator.PollIsValid(newPoll, out message))
+                if (!PollValidator.PollIsValid(newPoll, out var message))
                 {
                     ModelState.AddModelError("", message);
                     return View(poll);
                 }
 
-                PollDbContext.Polls.Add(newPoll);
-                PollDbContext.SaveChanges();
-
-                ViewBag.Polls = PollDbContext.Polls.ToList();
+                PollDbManager.SetPoll(newPoll);
+                ViewBag.Polls = PollDbManager.GetPolls();
 
                 return Redirect("/ControlPanel");
             }

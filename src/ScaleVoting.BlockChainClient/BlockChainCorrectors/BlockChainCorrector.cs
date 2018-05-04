@@ -14,29 +14,30 @@ namespace ScaleVoting.BlockChainClient.BlockChainCorrectors
             VotedUsersHashes = new List<string>();
         }
 
-        public IEnumerable<Block> Fix(Block[] blockChain)
+        public IEnumerable<Block> Fix(Block[] blockChain, string startTimestamp)
         {
             var result = new List<Block>();
             var preBlock = default(Block);
+            var startIndex = blockChain.GetBlockIndexWithTimestamp(startTimestamp);
 
-            foreach (var block in blockChain)
+            for(var counter = startIndex; counter < blockChain.Length; counter++)
             {
                 if (preBlock != default(Block) && preBlock.PreviousHash != "genesis")
                 {
-                    if (Cryptography.Sha256(preBlock.ToString()) != block.PreviousHash)
+                    if (Cryptography.Sha256(preBlock.ToString()) != blockChain[counter].PreviousHash)
                     {
-                        preBlock = block;
+                        preBlock = blockChain[counter];
                         continue;
                     }
                 }
                 else
                 {
-                    preBlock = block;
+                    preBlock = blockChain[counter];
                     continue;
                 }
-                preBlock = block;
+                preBlock = blockChain[counter];
 
-                foreach (var transaction in block.Transactions)
+                foreach (var transaction in blockChain[counter].Transactions)
                 {
                     /*
                     if (VotedUsersHashes.Contains(transaction.UserHash))
@@ -46,7 +47,7 @@ namespace ScaleVoting.BlockChainClient.BlockChainCorrectors
                     VotedUsersHashes.Add(transaction.UserHash);
                     */
                 }
-                result.Add(block);
+                result.Add(blockChain[counter]);
             }
             return result;
         }

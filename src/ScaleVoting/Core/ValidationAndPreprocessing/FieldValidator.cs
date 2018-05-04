@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ScaleVoting.Core.ValidationAndPreprocessing;
+using ScaleVoting.Domains;
 
 namespace ScaleVoting.Models.ValidationAndPreprocessing
 {
@@ -26,11 +28,13 @@ namespace ScaleVoting.Models.ValidationAndPreprocessing
             return true;
         }
         
-        public bool OptionsListIsValid(List<string> options)
+        public bool OptionsListIsValid(IEnumerable<Option> options)
         {
-            return options.Count > 2 &&
-                   options.Count < 50 &&
-                   options.All(option => FieldIsValid(option, FieldType.Option));
+            var optionsList = options.ToList();
+
+            return optionsList.Count >= 2 &&
+                   optionsList.Count <= 50 &&
+                   optionsList.All(option => FieldIsValid(option.OptionContent, FieldType.Option));
         }
     }
 }

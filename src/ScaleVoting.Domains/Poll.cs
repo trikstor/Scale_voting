@@ -10,10 +10,9 @@ namespace ScaleVoting.Domains
         [Key]
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public string UserName { get; set; }
+        public string CreatorName { get; set; }
         public string Timestamp { get; set; }
         public virtual ICollection<Question> Questions { get; set;  }
-        //public BlockChainStatistics Statistics { get; set; }
 
         public Poll()
         {
@@ -21,7 +20,7 @@ namespace ScaleVoting.Domains
         }
         public Poll(string userName, string title)
         {
-            UserName = userName;
+            CreatorName = userName;
             Title = title;
             Id = Guid.NewGuid();
             Timestamp = TimeStamp.Get(DateTime.Now);
@@ -29,7 +28,7 @@ namespace ScaleVoting.Domains
 
         public Poll(string userName, string title, Question[] questions)
         {
-            UserName = userName;
+            CreatorName = userName;
             Title = title;
             Questions = questions;
             Id = Guid.NewGuid();

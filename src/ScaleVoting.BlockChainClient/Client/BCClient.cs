@@ -3,6 +3,8 @@ using ScaleVoting.Domains;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ScaleVoting.BlockChainClient.Transaction;
+using ScaleVoting.BlockChainClient.BlockChainCorrectors;
 
 namespace ScaleVoting.BlockChainClient.Client
 {
@@ -21,12 +23,16 @@ namespace ScaleVoting.BlockChainClient.Client
             BlockChainCorrector = new BlockChainCorrector();
         }
 
-        public async Task<IEnumerable<Answer>> GetChain()
+        public async Task<IEnumerable<Answer>> GetChain(string startTimestamp)
         {
             var blocks = await GetChainBlocks();
-            blocks = BlockChainCorrector.Fix(blocks.ToArray());
+            blocks = BlockChainCorrector.Fix(blocks.ToArray(), startTimestamp);
             var transactions = BlockChainExtension.ConvertBlocksToTransactions(blocks);
-            var answers = transactions.Select(trans => JsonConvert.DeserializeObject<Answer>(trans.Data));
+            var answers = new List<Answer>();
+            foreach (var transaction in transactions)
+            {
+                answers.Add(transaction.ToAnswer());
+            }
 
             return answers;
         }
@@ -43,14 +49,7 @@ namespace ScaleVoting.BlockChainClient.Client
 
         public async Task<string> SetAnswerToBlockChain(Answer answer)
         {
-            var transaction = new Transaction
-            {
-                Data = JsonConvert.SerializeObject(answer),
-                HasValidData = true,
-                UserHash = answer.UserHash,
-                Signature = new byte[10]
-            };
-            var jsonTransaction = JsonConvert.SerializeObject(transaction,
+            var jsonTransaction = JsonConvert.SerializeObject(answer.ToTransaction(),
                 new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
             return await Client.GetResponseFromRequestWithJsonTo(
