@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ScaleVoting.BlockChainClient")]
+[assembly: AssemblyTitle("BlockChainProvider")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ScaleVoting.BlockChainClient")]
+[assembly: AssemblyProduct("BlockChainProvider")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("b55d9107-b764-4d45-b23e-437aa0161d2a")]
+[assembly: Guid("7578de1f-99d4-4b58-964a-cba1e6617747")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

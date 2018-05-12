@@ -5,13 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting", "ScaleVoting\ScaleVoting.csproj", "{FDF125AD-8015-4C82-94B3-943614818A53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.BlockChainClient", "ScaleVoting.BlockChainClient\ScaleVoting.BlockChainClient.csproj", "{F8468044-FC23-40B8-A5C9-972643B0F725}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.Domains", "ScaleVoting.Domains\ScaleVoting.Domains.csproj", "{92DFDEB6-370B-4580-BDB5-596456BC8EA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.Infrastucture", "ScaleVoting.Infrastucture\ScaleVoting.Infrastucture.csproj", "{A5633961-D1A2-48D8-B57E-9C39646D4684}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.Extensions", "ScaleVoting.Extensions\ScaleVoting.Extensions.csproj", "{CF765818-8E92-4D59-ADB6-26942DA587B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleVoting.BlockChainClient", "ScaleVoting.BlockChainClient\ScaleVoting.BlockChainClient.csproj", "{B55D9107-B764-4D45-B23E-437AA0161D2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF125AD-8015-4C82-94B3-943614818A53}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8468044-FC23-40B8-A5C9-972643B0F725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8468044-FC23-40B8-A5C9-972643B0F725}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8468044-FC23-40B8-A5C9-972643B0F725}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8468044-FC23-40B8-A5C9-972643B0F725}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92DFDEB6-370B-4580-BDB5-596456BC8EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF765818-8E92-4D59-ADB6-26942DA587B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55D9107-B764-4D45-B23E-437AA0161D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55D9107-B764-4D45-B23E-437AA0161D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55D9107-B764-4D45-B23E-437AA0161D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55D9107-B764-4D45-B23E-437AA0161D2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,6 @@
     ViewBag.Title = string.Format("Опрос - {0}", Html.Raw(poll.Title));
 }
 @model ScaleVoting.Models.FormVoting
-@Html.AntiForgeryToken()
 @Html.ValidationSummary(false)
 
 @using (Html.BeginForm())
@@ -31,9 +30,26 @@
                 counter++;
             }
         </p>
-        <button type="submit" class="btn btn-primary">Голосовать</button>
+        @if (ViewBag.UserVoted)
+        {
+            <b>Вы уже проголосовали.</b>
+        }
+        else
+        {
+            if (poll.IsClosed)
+            {
+                <b>Автор опроса закрыл его.</b>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary">Голосовать</button>
+            }
+        }
     </div>
-                }
+}
+
+<div id="statistic_chart">
+</div>
 
 <div class="card-text">
     <div class="row-fluid">

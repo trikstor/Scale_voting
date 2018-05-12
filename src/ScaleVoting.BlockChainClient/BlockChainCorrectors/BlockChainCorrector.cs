@@ -18,7 +18,8 @@ namespace ScaleVoting.BlockChainClient.BlockChainCorrectors
         {
             var result = new List<Block>();
             var preBlock = default(Block);
-            var startIndex = blockChain.GetBlockIndexWithTimestamp(startTimestamp);
+            // Можно будет доделать после правок в блокчейне, связанных с форматом time stamp.
+            var startIndex = 0;//blockChain.GetBlockIndexWithTimestamp(startTimestamp);
 
             for(var counter = startIndex; counter < blockChain.Length; counter++)
             {
@@ -49,23 +50,6 @@ namespace ScaleVoting.BlockChainClient.BlockChainCorrectors
                 }
                 result.Add(blockChain[counter]);
             }
-            return result;
-        }
-
-        public IEnumerable<Answer> Fix(Question question, IEnumerable<Answer> answers)
-        {
-            var result = new List<Answer>();
-
-            foreach (var answer in answers)
-            {
-                if (!question.Options.Any(opt => opt.Id == answer.OptionId) ||
-                    question.Id != answer.QuestionId)
-                {
-                    continue;
-                }
-                result.Add(answer);
-            }
-
             return result;
         }
     }

@@ -4,6 +4,8 @@
     {
         Title,
         Content,
-        Option
+        Option,
+        Email,
+        Password
     }
 }

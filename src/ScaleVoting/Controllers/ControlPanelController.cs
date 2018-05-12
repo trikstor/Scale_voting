@@ -6,7 +6,6 @@ using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;
 using ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators;
 using System;
-using ScaleVoting.Models.ValidationAndPreprocessing;
 
 namespace ScaleVoting.Controllers
 {
@@ -16,15 +15,20 @@ namespace ScaleVoting.Controllers
         private PollValidator PollValidator { get; }
         private string UserName => HttpContext.User.Identity.Name;
 
-        public ControlPanelController()
+        public ControlPanelController(PollValidator pollValidator)
         {
             PollDbManager = new PollDbManager();
-            PollValidator = new PollValidator(new FieldValidator());
+            PollValidator = pollValidator;
         }
 
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(FormPoll pollModel)
         {
+            if (pollModel.Id != Guid.Empty)
+            {
+                PollDbManager.ApplyPollAction(pollModel.Id.ToString(), pollModel.PollAction);
+            }
+
             ViewBag.Polls = PollDbManager.GetPolls()
                 .Where(poll => poll.CreatorName == UserName);
 
@@ -47,24 +51,24 @@ namespace ScaleVoting.Controllers
                 var newPoll = new Poll(UserName, poll.Title);
 
                 newPoll.Questions = formQuestions
-                    .Select(question => new Question(newPoll, question.Title, question.Options))
+                    .Select((question, counter) => new Question(newPoll, counter, question.Title, question.Options))
                     .ToArray();
 
-                if (!PollValidator.PollIsValid(newPoll, out var message))
+                string message;
+                if (!PollValidator.PollIsValid(newPoll, out message))
                 {
                     ModelState.AddModelError("", message);
                     return View(poll);
                 }
 
-                PollDbManager.SetPoll(newPoll);
+                PollDbManager.Set(newPoll);
                 ViewBag.Polls = PollDbManager.GetPolls();
 
                 return Redirect("/ControlPanel");
             }
             catch (Exception e)
             {
-                //TODO: Логгирование
-                return View();
+                throw;
             }
         }
     }

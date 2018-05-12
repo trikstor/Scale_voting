@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using ScaleVoting.Domains;
 using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;
 using ScaleVoting.BlockChainClient.Client;
 using System.Threading.Tasks;
-using ScaleVoting.BlockChainClient.BlockChainCorrectors;
 
 namespace ScaleVoting.Controllers
 {
@@ -28,6 +26,15 @@ namespace ScaleVoting.Controllers
             var poll = PollDbManager.GetPollWithId(id);
             ViewBag.Poll = await GetPollWithStatistics(poll);
 
+            if (poll.IsVoted(UserName))
+            {
+                ViewBag.UserVoted = true;
+            }
+            else
+            {
+                ViewBag.UserVoted = false;
+            }
+
             return View();
         }
 
@@ -48,18 +55,25 @@ namespace ScaleVoting.Controllers
             }
 
             ViewBag.Poll = await GetPollWithStatistics(poll);
+            if(poll.IsVoted(UserName))
+            {
+                ViewBag.UserVoted = true;
+            }
+            else
+            {
+                ViewBag.UserVoted = false;
+            }
 
             return View(model);
         }
 
         private async Task<Poll> GetPollWithStatistics(Poll poll)
         {
-            var statisticTask = await BCClient.GetChain(poll.Timestamp);
-            var tt = statisticTask.ToList();
-            var corretor = new BlockChainCorrector();
-            for(var counter = 0; counter < poll.Questions.Count; counter++)
+            var answers = await BCClient.GetChain(poll.Timestamp);
+
+            foreach (var question in poll.Questions)
             {
-                poll.Questions[counter].Answers = corretor.Fix(poll.Questions[counter], statisticTask);
+                question.Answers = answers;
             }
 
             return poll;

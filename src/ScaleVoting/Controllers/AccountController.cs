@@ -9,14 +9,21 @@ using ScaleVoting.Domains;
 using ScaleVoting.Extensions;
 using ScaleVoting.Infrastucture;
 using ScaleVoting.Models;
+using ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators;
 
 namespace ScaleVoting.Controllers
 {
     public class AccountController : Controller
     {
+        private UserValidator UserValidator { get; }
         private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
         private ApplicationAuthUserManager AuthUserManager => HttpContext.GetOwinContext().GetUserManager<ApplicationAuthUserManager>();
         private string Salt => WebConfigurationManager.AppSettings["Salt"];
+
+        public AccountController(UserValidator userValidator)
+        {
+            UserValidator = userValidator;
+        }
 
         public ActionResult Login()
         {
@@ -26,14 +33,18 @@ namespace ScaleVoting.Controllers
         [HttpPost]
         public async Task<ActionResult> Login(FormUser model)
         {
+            if (!UserValidator.UserIsValid(model, out var message))
+            {
+                ModelState.AddModelError("", message);
+                return View(model);
+            }
             var user = await AuthUserManager.FindAsync(model.Email, Cryptography.Sha256(model.Password + Salt));
 
             if (user == null)
             {
-                ModelState.AddModelError("", "Некорректное имя или пароль.");
+                ModelState.AddModelError("", "Пользователь не найден.");
+                return View(model);
             }
-            else
-            {
                 var ident = await AuthUserManager.CreateIdentityAsync(user,
                     DefaultAuthenticationTypes.ApplicationCookie);
 
@@ -44,8 +55,6 @@ namespace ScaleVoting.Controllers
                         IsPersistent = false
                     }, ident);
                 return Redirect("/ControlPanel");
-            }
-            return View(model);
         }
 
         public ActionResult Logout()
@@ -62,16 +71,23 @@ namespace ScaleVoting.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(FormUser model)
         {
-            if (ModelState.IsValid)
-            {
-                var user = new User { UserName = model.Email, PasswordHash = Cryptography.Sha256(model.Password + Salt) };
-                var result = await AuthUserManager.CreateAsync(user, Cryptography.Sha256(model.Password + Salt));
-                if (result.Succeeded)
+                if (ModelState.IsValid)
                 {
-                    return Redirect("/Account/Login");
+                    if (!UserValidator.UserIsValid(model, out var message))
+                    {
+                        ModelState.AddModelError("", message);
+                        return View(model);
+                    }
+                    var user = new User { UserName = model.Email, PasswordHash = Cryptography.Sha256(model.Password + Salt) };
+                    var result = await AuthUserManager.CreateAsync(user, Cryptography.Sha256(model.Password + Salt));
+
+                    if (result.Succeeded)
+                    {
+                        return Redirect("/Account/Login");
+                    }
+
+                    AddErrorsFromResult(result);
                 }
-                AddErrorsFromResult(result);
-            }
             return View(model);
         }
 

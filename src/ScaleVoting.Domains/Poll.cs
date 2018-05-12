@@ -10,14 +10,15 @@ namespace ScaleVoting.Domains
         [Key]
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public string CreatorName { get; set; }
         public string Timestamp { get; set; }
-        public virtual ICollection<Question> Questions { get; set;  }
+        public virtual IList<Question> Questions { get; set; }
+        public string CreatorName { get; set; }
+        public bool IsClosed { get; set; }
 
         public Poll()
-        {
-            
+        { 
         }
+
         public Poll(string userName, string title)
         {
             CreatorName = userName;
@@ -34,5 +35,7 @@ namespace ScaleVoting.Domains
             Id = Guid.NewGuid();
             Timestamp = TimeStamp.Get(DateTime.Now);
         }
+
+        public bool IsVoted(string userName) => Questions[0].IsAnswerWithUser(userName);
     }
 }

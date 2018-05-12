@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8468044-FC23-40B8-A5C9-972643B0F725}</ProjectGuid>
+    <ProjectGuid>{B55D9107-B764-4D45-B23E-437AA0161D2A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ScaleVoting.BlockChainClient</RootNamespace>
@@ -30,15 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CsvHelper">
-      <HintPath>..\ScaleVoting\Bin\CsvHelper.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,23 +45,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
-    <Compile Include="Client\BCClient.cs" />
     <Compile Include="BlockChainCorrectors\BlockChainCorrector.cs" />
-    <Compile Include="BlockChainExtension.cs" />
     <Compile Include="BlockChainCorrectors\IBlockChainCorrector.cs" />
-    <Compile Include="Statistics\IStatisticsProvider.cs" />
-    <Compile Include="Statistics\PollStatisticsProvider.cs" />
-    <Compile Include="Transaction\ITransaction.cs" />
+    <Compile Include="BlockChainExtension.cs" />
+    <Compile Include="Client\BCClient.cs" />
     <Compile Include="Client\NodeApi.cs" />
-    <Compile Include="Client\WebClient.cs" />
     <Compile Include="Client\NodeReplics.cs" />
     <Compile Include="Client\NodesCache.cs" />
+    <Compile Include="Client\WebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaction\ITransaction.cs" />
     <Compile Include="Transaction\Transaction.cs" />
     <Compile Include="Transaction\TransactionConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -77,12 +70,7 @@
       <Project>{cf765818-8e92-4d59-adb6-26942da587b6}</Project>
       <Name>ScaleVoting.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ScaleVoting.Infrastucture\ScaleVoting.Infrastucture.csproj">
-      <Project>{a5633961-d1a2-48d8-b57e-9c39646d4684}</Project>
-      <Name>ScaleVoting.Infrastucture</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

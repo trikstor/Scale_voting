@@ -1,6 +1,5 @@
 ﻿using ScaleVoting.Domains;
 using ScaleVoting.Models.ValidationAndPreprocessing;
-using System.Linq;
 
 namespace ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators
 {
@@ -14,27 +13,33 @@ namespace ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators
 
         public bool PollIsValid(Poll poll, out string message)
         {
-            if (!FieldValidator.FieldIsValid(poll.Title, FieldType.Title))
+            var detailMessage = default(string);
+            if (!FieldValidator.FieldIsValid(poll.Title, FieldType.Title, out detailMessage))
             {
-                message = $"Заголовок '{poll.Title}' должен быть меньше 150 символов.";
+                message = $"Заголовок '{poll.Title}' {detailMessage}";
+                return false;
+            }
+
+            if (poll.Questions.Count == 0)
+            {
+                message = "Должен быть хотя бы один вопрос";
                 return false;
             }
 
             foreach (var question in poll.Questions)
             {
-                if (!FieldValidator.FieldIsValid(question.Title, FieldType.Title))
+                if (!FieldValidator.FieldIsValid(question.Title, FieldType.Title, out detailMessage))
                 {
-                    message = $"Заголовок '{question.Title}' должен быть меньше 150 символов.";
+                    message = $"Заголовок '{question.Title}' {detailMessage}";
                     return false;
                 }
-                if (!FieldValidator.OptionsListIsValid(question.Options))
+                if (!FieldValidator.OptionsListIsValid(question.Options, out message))
                 {
-                    message = "Вариантов ответа должно быть не более 50 и не менее 2, " +
-                        "недопустимо повторение вариантов ответа в одном вопросе";
                     return false;
                 }
             }
             message = "Опрос проверен успешно";
+
             return true;
         }
     }

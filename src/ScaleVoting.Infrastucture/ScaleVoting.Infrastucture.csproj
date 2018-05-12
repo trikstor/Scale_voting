@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="ApplicationAuthDbContext .cs" />
     <Compile Include="ApplicationAuthUserManager.cs" />
+    <Compile Include="IPollManager.cs" />
+    <Compile Include="PollAction.cs" />
     <Compile Include="PollDbContext.cs" />
     <Compile Include="PollDbManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

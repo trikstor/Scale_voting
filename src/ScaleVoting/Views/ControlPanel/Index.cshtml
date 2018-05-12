@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Управление опросами";
 }
+@using ScaleVoting.Infrastucture
+@model ScaleVoting.Models.FormPoll
 <div class="container d-flex justify-content-between w-100">
     <nav id="left_navbar" class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">Ваши опросы</a>
@@ -23,21 +25,29 @@
                         @Html.Raw(poll.Title)
                     </div>
                     <div class="card-body">
-                        <div class="alert alert-danger" role="alert">
-                            <form>
-                                <button type="button" class="btn btn-danger">Закрыть опрос</button>
-                                <div class="form-check form-check-inline ml-5">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Приватный опрос</label>
-                                </div>
-                                <button type="button" class="btn btn-danger float-right">Удалить опрос</button>
-                            </form>
-                        </div>
+                        @using (Html.BeginForm())
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @Html.HiddenFor(model => model.Id, new { Value = poll.Id})
+                                @Html.HiddenFor(model => model.PollAction, new { Value = PollAction.Delete })
+                                @if (poll.IsClosed)
+                                {
+                                    @Html.HiddenFor(model => model.PollAction, new { Value = PollAction.Open })
+                                    <button type="submit" class="btn btn-danger">Открыть опрос</button>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(model => model.PollAction, new { Value = PollAction.Close })
+                                    <button type="submit" class="btn btn-danger">Закрыть опрос</button>
+                                }
+                                <button type="submit" class="btn btn-danger float-right">Удалить опрос</button>
+                            </div>
+                        }
                         @foreach (var question in poll.Questions)
                         {
-                        <p class="card-text">
-                            @Html.Raw(question.Title)
-                        </p>
+                            <p class="card-text">
+                                @Html.Raw(question.Title)
+                            </p>
                         }
                         <a href="/Voting/@Html.Raw(poll.Id)" class="btn btn-primary">Голосовать</a>
                     </div>
