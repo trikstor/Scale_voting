@@ -1,0 +1,111 @@
+﻿@{
+    var poll = ViewBag.Poll;
+    var errors = ViewBag.Errors;
+    ViewBag.Title = string.Format("Опрос - {0}", Html.Raw(poll.Title));
+}
+@using ScaleVoting.Domains
+@model ScaleVoting.Models.FormVote
+@Html.ValidationSummary(false)
+
+<script>
+    function combineJson() {
+        var selected = $('.poll-quest-option:checked');
+        var list = [];
+        for (var i = 0; i < selected.length; i++) {
+            list[i] = selected[i].id;
+        }
+        return JSON.stringify(list);
+    }
+
+    function prepare() {
+        var json = combineJson();
+        $('#json-options').val(json);
+        return validate();
+    }
+
+    function validate() {
+        var valid = true;
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        for (var i = 0; i < forms.length; i++) {
+            if (forms[i].checkValidity() === false) {
+                valid = false;
+            }
+            forms[i].classList.add('was-validated');
+        }
+        return valid;
+    }
+</script>
+
+@using (Html.BeginForm("Vote", "Polls", FormMethod.Post, new {@class = "needs-validation", validate = "novalidate"}))
+{
+    @Html.HiddenFor(model => model.PollGuid, new {@class = "form-control", Value = poll.Guid})
+    @Html.HiddenFor(model => model.JsonOptions, new {@class = "form-control", id = "json-options"})
+    <div id="poll-@Html.Raw(poll.Guid)" class="jumbotron justify-content-between">
+        <h4 class="display-4 text-center">@poll.Title</h4>
+        <hr class="my-4">
+        @if (errors != null)
+        {
+            foreach (var error in errors)
+            {
+                <div class="alert alert-warning" role="alert">
+                    @error
+                </div>
+            }
+        }
+        @foreach (var question in poll.Questions)
+        {
+            <div class="card" id="question-@question.Guid">
+                <div class="card-body">
+                    <h5 class="card-title">@question.Title</h5>
+
+                    <div class="card-text">
+                        @if (question.Type == QuestionType.Single)
+                        {
+                            foreach (var option in question.Options)
+                            {
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input poll-quest-option" name="radio-@question.Guid" id="@option.Guid"/>
+                                    <label for="@option.Guid" class="form-check-label">@option.OptionContent</label>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Не выбраны корректные опции
+                                </div>
+                            }
+                        }
+                        @if (question.Type == QuestionType.Multi)
+                        {
+                            foreach (var option in question.Options)
+                            {
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input poll-quest-option" name="radio-@question.Guid" id="@option.Guid"/>
+                                    <label for="@option.Guid" class="form-check-label">@option.OptionContent</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        <br/>
+        @if (ViewBag.UserVoted)
+        {
+            <div class="alert alert-warning" role="alert">
+                Вы уже проголосовали!
+            </div>
+        }
+        else
+        {
+            if (poll.IsClosed)
+            {
+                <div class="alert alert-warning" role="alert">
+                    Опрос был закрыт автором
+                </div>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary" onclick="return prepare()">Голосовать</button>
+            }
+        }
+    </div>
+}

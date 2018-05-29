@@ -1,0 +1,140 @@
+﻿@using ScaleVoting.Models
+@model FormPoll
+@Html.ValidationSummary(false)
+@{
+    ViewBag.Title = "Создать новый опрос";
+}
+<script>
+    var index = 0;
+
+    function appendQuestion(qtype) {
+        var current = $('#question-list');
+        var element = '';
+        // Wrap
+        element += '<div id="question-' + index + '" class="question card mb-2">';
+        element += '<hidden type="' + qtype + '">';
+        element += '<div class="card-header">';
+        if (qtype == 'single') {
+            element += 'Вопрос с одним вариантом ответа';
+        } else {
+            element += 'Вопрос с несколькими вариантами ответа';
+        }
+        element += "</div>";
+        element += '<div class="card-body">';
+        // Input title
+        element += '<div class="input-group input-group-sm mb-3">' +
+            '<div class="input-group-prepend">' +
+            '<span class="input-group-text"' +
+            'id="question-' +
+            index +
+            '-title">Заголовок вопроса</span>' +
+            '</div><input type="text" class="form-control question-title"' +
+            'aria-label="Question title" aria-describedby="question-' +
+            index +
+            '-title" pattern=".{3,}" required></div>';
+        // Question wrap
+        element += '<div id="question-' + index + '-options"></div>';
+        // Buttons
+        element += '<div class="btn-group" role="group">';
+        element += '<button type="button" class="btn btn-primary" onclick="appendOption(' +
+            index +
+            ');">Добавить опцию</button>';
+        element += '<button type="button" class="btn btn-secondary btn-danger" onclick="removeQuestionSingle(' +
+            index +
+            ');">Удалить вопрос</button>';
+        element += '</div>';
+        // Close wrap
+        element += '</div></div>';
+        current.append(element);
+
+        index++;
+    }
+
+    function appendOption(id) {
+        var target = $('#question-' + id + '-options');
+        var element = '';
+        // Wrap
+        element += '<div class="input-group mb-3">';
+        element += '<input type="text" class="form-control option-text" pattern=".{3,}"  required>';
+        element +=
+            '<div class="input-group-append"><button class="btn btn-outline-secondary" type="button" onclick="removeOption(this);">X</button></div>';
+        // Close wrap
+        element += '</div>';
+        target.append(element);
+    }
+
+    function removeOption(elem) {
+        elem.parentElement.parentElement.remove();
+    }
+
+    function removeQuestionSingle(id) {
+        var question = $('#question-' + id);
+        question.remove();
+    }
+
+    function combineJson() {
+        var forms = [];
+        var questions = $('.question');
+        for (var i = 0; i < questions.length; i++) {
+            var form = new Object();
+            form.Title = questions[i].getElementsByClassName('question-title')[0].value;
+            form.Type = questions[i].getElementsByTagName('hidden')[0].getAttribute('type');
+            form.Options = [];
+            var optionDivs = questions[i].getElementsByClassName('option-text');
+            for (var k = 0; k < optionDivs.length; k++) {
+                form.Options[k] = optionDivs[k].value;
+            }
+            forms[i] = form;
+        }
+        return JSON.stringify(forms);
+    }
+
+    function prepare() {
+        var json = combineJson();
+        $('#json-questions').val(json);
+        return validate();
+    }
+
+    function validate() {
+        var valid = true;
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        for (var i = 0; i < forms.length; i++) {
+            if (form.checkValidity() === false) {
+                valid = false;
+            }
+            form.classList.add('was-validated');
+        }
+        return valid;
+    }
+</script>
+
+<div class="jumbotron">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.JsonQuestions, new {@class = "form-control", id = "json-questions"})
+        ;
+        <div class="input-group input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup">Заголовок опроса</span>
+            </div>
+            @Html.TextBoxFor(model => model.Title, new {@class = "form-control", required = "required", pattern = ".{3,}"})
+        </div>
+
+        <div id="question-list"></div>
+
+        <hr class="my-4" id="qbreak"/>
+
+        <div class="btn-group" role="group" aria-label="Poll controls">
+            <div class="btn-group" role="group">
+                <button id="qselect" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Добавить вопрос</button>
+                <div class="dropdown-menu" aria-labelledby="qselect">
+                    <a class="dropdown-item" href="#qselect" onclick="appendQuestion('Single');">Один ответ</a>
+                    <a class="dropdown-item" href="#qselect" onclick="appendQuestion('Multi');">Множество ответов</a>
+                    <a class="dropdown-item" href="#qselect">Свободный ответ</a>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="return prepare();">Создать опрос</button>
+        </div>
+    }
+</div>
