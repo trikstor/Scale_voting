@@ -30,7 +30,7 @@
                             }
                         </ul>
                     }
-                    @if (question.Type == QuestionType.Free)
+                    else if (question.Type == QuestionType.Free && stat.CustomOptionsList.ContainsKey(question.Guid))
                     {
                         <a class="btn btn-primary" data-toggle="collapse" href="#@question.Guid-free-values" role="button" aria-expanded="false" aria-controls="@question.Guid-free-values">Вывести список ответов</a>
                         <div class="collapse" id="@question.Guid-free-values">
@@ -42,9 +42,13 @@
                             </ul>
                         </div>
                     }
+                    else
+                    {
+                        <h5 class="text-info">Статистика отсутствует!</h5>
+                    }
                 </div>
             </div>
         </div>
     }
-    <br/>
+    <br />
 </div>
