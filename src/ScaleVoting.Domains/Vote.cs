@@ -12,10 +12,12 @@ namespace ScaleVoting.Domains
         public string UserHash { get; set; }
 
         public IList<Guid> SelectedOptions { get; set; }
+        public IDictionary<Guid, string> CustomOptions { get; set; }
 
         public Vote()
         {
             SelectedOptions = new List<Guid>();
+            CustomOptions = new Dictionary<Guid, string>();
         }
     }
 }

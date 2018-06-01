@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web.Configuration;
 using DCode.EmailValidator.Core;
 using ScaleVoting.Domains;
@@ -21,7 +22,11 @@ namespace ScaleVoting.Core.ValidationAndPreprocessing
         private int OptionsPerQuestionLimit =>
             int.Parse(WebConfigurationManager.AppSettings["OptionsPerQuestionLimit"]);
 
+        private int UserNameLimit =>
+            int.Parse(WebConfigurationManager.AppSettings["UserNameLimit"]);
+
         private Validator EmailValidator { get; }
+        private readonly Regex OnlyDigitsAndRomanAlphabetRegex = new Regex("^[a-zA-Z0-9]+$");
 
         public FieldValidator(Validator emailValidator)
         {
@@ -51,6 +56,11 @@ namespace ScaleVoting.Core.ValidationAndPreprocessing
                     return false;
                 case FieldType.Password when field.Length < 6 && field.Length > ContentLimit:
                     message = $"Длина поля не может быть больше {ContentLimit} и меньше 6 символов";
+                    return false;
+                case FieldType.UserName when field.Length > UserNameLimit ||
+                !OnlyDigitsAndRomanAlphabetRegex.IsMatch(field):
+                    message = $"Длина имени пользователя не может быть больше {UserNameLimit} символов" +
+                              "и содержать только латиницу в цифры";
                     return false;
                 case FieldType.Email when !EmailValidator.CheckDomainName(field):
                     message = "Некорректный адрес электронной почты";

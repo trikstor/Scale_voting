@@ -26,6 +26,15 @@ namespace ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators
 
             foreach (var question in poll.Questions)
             {
+                if (question.Type == QuestionType.Single || question.Type == QuestionType.Multi)
+                {
+                    if (question.Options.Count < 2)
+                    {
+                        message = "В вопросах должно быть минимум 2 варианта ответа!";
+                        return false;
+                    }
+                }
+
                 if (FieldValidator.FieldIsValid(question.Title, FieldType.Title, out detailMessage))
                 {
                     continue;

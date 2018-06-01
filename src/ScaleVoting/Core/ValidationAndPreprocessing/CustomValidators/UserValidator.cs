@@ -11,9 +11,16 @@ namespace ScaleVoting.Core.ValidationAndPreprocessing.CustomValidators
             FieldValidator = fieldValidator;
         }
 
-        public bool UserIsValid(FormUser user, out string message)
+        public bool UserIsValid(FormUser user, bool ignoreEmail, out string message)
         {
-            if (!FieldValidator.FieldIsValid(user.Email, FieldType.Email, out var detailMessage))
+            if (!FieldValidator.FieldIsValid(user.UserName, FieldType.UserName, out var detailMessage))
+            {
+                message = $"Некорректное имя пользователя: {detailMessage}";
+                return false;
+            }
+
+            if (!ignoreEmail && 
+                !FieldValidator.FieldIsValid(user.Email, FieldType.Email, out detailMessage))
             {
                 message = $"Некорректный email: {detailMessage}";
                 return false;

@@ -26,19 +26,25 @@
                         @Html.Raw(poll.Title)
                     </div>
                     <div class="card-body">
-                        @foreach (var question in poll.Questions)
-                        {
-                            <p class="card-text">
-                                @Html.Raw(question.Title)
-                            </p>
-                        }
+                        <p class="card-text">
+                            Вопросы:
+                            <ul>
+                                @foreach (var question in poll.Questions)
+                                {
+                                    <li>@Html.Raw(question.Title)</li>
+                                }
+                            </ul>
+                        </p >
                     </div>
                     <div class="card-footer">
                         @using (Html.BeginForm())
                         {
                             @Html.HiddenFor(model => model.Id, new {Value = poll.Guid})
-                            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Control toolbar">
+                        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Control toolbar">
+                            <div class="btn-group" role="group" aria-label="Poll primary">
                                 <a href="/Polls/Vote/@Html.Raw(poll.Guid)" class="btn btn-primary">Голосовать</a>
+                                <a href="/Polls/Stat/@Html.Raw(poll.Guid)" class="btn btn-primary">Статистика</a>
+                            </div>
                                 <div class="btn-group" role="group" aria-label="Poll control">
                                     @if (poll.IsClosed)
                                     {
@@ -70,8 +76,8 @@
                                     </div>
                                 </div>
                             </div>
-                        }
-                    </div>
+                            }
+                        </div>
                 </div>
             }
         }

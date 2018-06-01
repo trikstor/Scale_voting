@@ -35,7 +35,6 @@ namespace ScaleVoting.Infrastucture
         {
             var polls = PollDbContext.Polls.Include(p => p.Questions.Select(q => q.Options)).
                 OrderByDescending(p => p.TimeStamp).ToList();
-            ;
 
             foreach (var poll in polls)
             {
@@ -43,6 +42,13 @@ namespace ScaleVoting.Infrastucture
             }
 
             return polls;
+        }
+
+        public void AddVotedUser(Guid pollGuid, string userHash)
+        {
+            var poll = GetPollWithId(pollGuid.ToString());
+            poll.UsersVoted.Add(userHash);
+            PollDbContext.SaveChanges();
         }
 
         public void Set(Poll poll)

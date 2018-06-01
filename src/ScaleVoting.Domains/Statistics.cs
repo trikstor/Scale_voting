@@ -9,12 +9,34 @@ namespace ScaleVoting.Domains
         public Poll Poll { get; }
         public Dictionary<Guid, int> OptionCountStat { get; }
         public Dictionary<Guid, int> QuestionCountStat { get; }
+        public Dictionary<Guid, IList<string>> CustomOptionsList { get; }
 
         public Statistics(Poll poll)
         {
             Poll = poll;
             OptionCountStat = GetOptionCountStat();
             QuestionCountStat = GetQuestionCountStat();
+            CustomOptionsList = GetCustomOptions();
+        }
+
+        private Dictionary<Guid, IList<string>> GetCustomOptions()
+        {
+            var result = new Dictionary<Guid, IList<string>>();
+            foreach (var vote in Poll.Votes)
+            {
+                foreach (var customOption in vote.CustomOptions)
+                {
+                    var guid = customOption.Key;
+                    if (!result.ContainsKey(guid))
+                    {
+                        result[guid] = new List<string>();
+                    }
+
+                    result[guid].Add(customOption.Value);
+                }
+            }
+
+            return result;
         }
 
         private Dictionary<Guid, int> GetQuestionCountStat()

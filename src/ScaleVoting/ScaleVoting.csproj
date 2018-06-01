@@ -200,12 +200,9 @@
     <Compile Include="Models\FormQuestion.cs" />
     <Compile Include="Models\FormUser.cs" />
     <Compile Include="Global.asax.cs" />
-    <Compile Include="Core\ValidationAndPreprocessing\FieldPreprocessor.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\FieldType.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\FieldValidator.cs" />
     <Compile Include="Core\ValidationAndPreprocessing\IFieldValidator.cs" />
-    <Compile Include="Core\ValidationAndPreprocessing\IPreprocessing.cs" />
-    <Compile Include="Core\ValidationAndPreprocessing\IPreprocessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

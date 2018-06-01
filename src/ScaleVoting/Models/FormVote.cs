@@ -15,13 +15,16 @@ namespace ScaleVoting.Models
         [Required]
         public Guid PollGuid { get; set; }
 
+        public string CustomOptions { get; set; }
+
         public Vote ToVote(string username)
         {
             var vote = new Vote
             {
                 PollId = PollGuid,
                 UserHash = Cryptography.Sha256(username),
-                SelectedOptions = JsonConvert.DeserializeObject<List<Guid>>(JsonOptions)
+                SelectedOptions = JsonConvert.DeserializeObject<List<Guid>>(JsonOptions),
+                CustomOptions = JsonConvert.DeserializeObject<Dictionary<Guid, string>>(CustomOptions)
             };
             return vote;
         }

@@ -14,10 +14,12 @@
         element += '<div id="question-' + index + '" class="question card mb-2">';
         element += '<hidden type="' + qtype + '">';
         element += '<div class="card-header">';
-        if (qtype == 'single') {
+        if (qtype === 'Single') {
             element += 'Вопрос с одним вариантом ответа';
-        } else {
+        } else if (qtype === 'Multi') {
             element += 'Вопрос с несколькими вариантами ответа';
+        } else {
+            element += 'Вопрос со свободным отетом';
         }
         element += "</div>";
         element += '<div class="card-body">';
@@ -32,13 +34,15 @@
             'aria-label="Question title" aria-describedby="question-' +
             index +
             '-title" pattern=".{3,}" required></div>';
-        // Question wrap
-        element += '<div id="question-' + index + '-options"></div>';
-        // Buttons
-        element += '<div class="btn-group" role="group">';
-        element += '<button type="button" class="btn btn-primary" onclick="appendOption(' +
-            index +
-            ');">Добавить опцию</button>';
+        if (qtype === 'Single' || qtype === 'Multi') {
+            // Question wrap
+            element += '<div id="question-' + index + '-options"></div>';
+            // Buttons
+            element += '<div class="btn-group" role="group">';
+            element += '<button type="button" class="btn btn-primary" onclick="appendOption(' +
+                index +
+                ');">Добавить опцию</button>';
+        }
         element += '<button type="button" class="btn btn-secondary btn-danger" onclick="removeQuestionSingle(' +
             index +
             ');">Удалить вопрос</button>';
@@ -97,23 +101,36 @@
 
     function validate() {
         var valid = true;
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        for (var i = 0; i < forms.length; i++) {
-            if (form.checkValidity() === false) {
+        var alerts = $('#alerts');
+        alerts.empty();
+        var questions = $('.question');
+        if (questions.length < 1) {
+            alerts.append('<div class="alert alert-warning" role="alert">' +
+                'Опрос должен содержать хотя бы один вопрос!' +
+                '</div>');
+            valid = false;
+        }
+        for (var i = 0; i < questions.length; i++) {
+            if (questions[i].firstElementChild.attributes["type"].value === 'Free') {
+                continue;
+            }
+            var options = questions[i].getElementsByClassName('option-text');
+            if (options.length < 2) {
+                alerts.append('<div class="alert alert-warning" role="alert">' +
+                    'В вопросе ' + eval(i+1) + ' должно быть не менее двух вариантов ответа!' +
+                    '</div>');
                 valid = false;
             }
-            form.classList.add('was-validated');
         }
         return valid;
     }
 </script>
 
 <div class="jumbotron">
+    <div id="alerts"></div>
     @using (Html.BeginForm())
     {
         @Html.HiddenFor(model => model.JsonQuestions, new {@class = "form-control", id = "json-questions"})
-        ;
         <div class="input-group input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup">Заголовок опроса</span>
@@ -131,7 +148,7 @@
                 <div class="dropdown-menu" aria-labelledby="qselect">
                     <a class="dropdown-item" href="#qselect" onclick="appendQuestion('Single');">Один ответ</a>
                     <a class="dropdown-item" href="#qselect" onclick="appendQuestion('Multi');">Множество ответов</a>
-                    <a class="dropdown-item" href="#qselect">Свободный ответ</a>
+                    <a class="dropdown-item" href="#qselect" onclick="appendQuestion('Free');">Свободный ответ</a>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary" onclick="return prepare();">Создать опрос</button>

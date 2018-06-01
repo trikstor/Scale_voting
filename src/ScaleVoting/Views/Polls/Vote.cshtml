@@ -17,95 +17,131 @@
         return JSON.stringify(list);
     }
 
+    function combineJsonCustom() {
+        var custom = {};
+        var options = $('.free-option');
+        for (var i = 0; i < options.length; i++) {
+            var guid = options[i].closest('.card').attributes['id'].value;
+            var text = options[i].value;
+            custom[guid] = text;
+        }
+        return JSON.stringify(custom);
+    }
+
     function prepare() {
         var json = combineJson();
+        var jsonCustom = combineJsonCustom();
         $('#json-options').val(json);
+        $('#json-custom').val(jsonCustom);
         return validate();
     }
 
     function validate() {
         var valid = true;
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        for (var i = 0; i < forms.length; i++) {
-            if (forms[i].checkValidity() === false) {
+        var alerts = $('#alerts');
+        alerts.empty();
+        var questions = $('.card');
+        for (var i = 0; i < questions.length; i++) {
+            var input = $(questions[i]).find('input');
+            if (input.length !== 0) {
+                if (!($(input).is(':checked'))) {
+                    alerts.append('<div class="alert alert-warning" role="alert">' +
+                        'Не выбрана ни одна опция в вопросе ' + eval(i+1) + '!' +
+                        '</div>');
+                    valid = false;
+                }
+                continue;
+            }
+            var text = $(questions[i]).find('textarea')[0].value;
+            if (text === '') {
+                alerts.append('<div class="alert alert-warning" role="alert">' +
+                    'Не введен ответ в вопросе ' + eval(i+1) + '!' +
+                    '</div>');
                 valid = false;
             }
-            forms[i].classList.add('was-validated');
         }
         return valid;
     }
 </script>
 
-@using (Html.BeginForm("Vote", "Polls", FormMethod.Post, new {@class = "needs-validation", validate = "novalidate"}))
+@using (Html.BeginForm("Vote", "Polls", FormMethod.Post, new { @class = "needs-validation", validate = "novalidate" }))
 {
-    @Html.HiddenFor(model => model.PollGuid, new {@class = "form-control", Value = poll.Guid})
-    @Html.HiddenFor(model => model.JsonOptions, new {@class = "form-control", id = "json-options"})
-    <div id="poll-@Html.Raw(poll.Guid)" class="jumbotron justify-content-between">
-        <h4 class="display-4 text-center">@poll.Title</h4>
-        <hr class="my-4">
-        @if (errors != null)
-        {
-            foreach (var error in errors)
-            {
-                <div class="alert alert-warning" role="alert">
-                    @error
-                </div>
-            }
-        }
-        @foreach (var question in poll.Questions)
-        {
-            <div class="card" id="question-@question.Guid">
-                <div class="card-body">
-                    <h5 class="card-title">@question.Title</h5>
-
-                    <div class="card-text">
-                        @if (question.Type == QuestionType.Single)
-                        {
-                            foreach (var option in question.Options)
-                            {
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input poll-quest-option" name="radio-@question.Guid" id="@option.Guid"/>
-                                    <label for="@option.Guid" class="form-check-label">@option.OptionContent</label>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Не выбраны корректные опции
-                                </div>
-                            }
-                        }
-                        @if (question.Type == QuestionType.Multi)
-                        {
-                            foreach (var option in question.Options)
-                            {
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input poll-quest-option" name="radio-@question.Guid" id="@option.Guid"/>
-                                    <label for="@option.Guid" class="form-check-label">@option.OptionContent</label>
-                                </div>
-                            }
-                        }
-                    </div>
-                </div>
-            </div>
-        }
-        <br/>
-        @if (ViewBag.UserVoted)
+    @Html.HiddenFor(model => model.PollGuid, new { @class = "form-control", Value = poll.Guid })
+    @Html.HiddenFor(model => model.JsonOptions, new { @class = "form-control", id = "json-options" })
+    @Html.HiddenFor(model => model.CustomOptions, new { @class = "form-control", id = "json-custom" })
+<div id="poll-@Html.Raw(poll.Guid)" class="jumbotron justify-content-between">
+    <h4 class="display-4 text-center">@poll.Title</h4>
+    <hr class="my-4">
+    @if (errors != null)
+    {
+        foreach (var error in errors)
         {
             <div class="alert alert-warning" role="alert">
-                Вы уже проголосовали!
+                @error
+            </div>
+        }
+    }
+    @foreach (var question in poll.Questions)
+    {
+        <div class="card" id="@question.Guid">
+            <div class="card-body">
+                <h5 class="card-title">@question.Title</h5>
+
+                <div class="card-text">
+                    @if (question.Type == QuestionType.Single)
+                    {
+                        foreach (var option in question.Options)
+                        {
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input poll-quest-option" name="radio-@question.Guid" id="@option.Guid" />
+                                <label for="@option.Guid" class="form-check-label">@option.OptionContent</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Не выбраны корректные опции
+                            </div>
+                        }
+                    }
+                    @if (question.Type == QuestionType.Multi)
+                    {
+                        foreach (var option in question.Options)
+                        {
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input poll-quest-option" name="check-@question.Guid" id="@option.Guid" />
+                                <label for="@option.Guid" class="form-check-label">@option.OptionContent</label>
+                            </div>
+                        }
+                    }
+                    @if (question.Type == QuestionType.Free)
+                    {
+                        <div class="form-check">
+                            <textarea class="form-control free-option" id="@question.Guid-option"></textarea>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    <br />
+    <div id="alerts"></div>
+    <br/>
+    @if (ViewBag.UserVoted)
+    {
+        <div class="alert alert-warning" role="alert">
+            Вы уже проголосовали!
+        </div>
+    }
+    else
+    {
+        if (poll.IsClosed)
+        {
+            <div class="alert alert-warning" role="alert">
+                Опрос был закрыт автором
             </div>
         }
         else
         {
-            if (poll.IsClosed)
-            {
-                <div class="alert alert-warning" role="alert">
-                    Опрос был закрыт автором
-                </div>
-            }
-            else
-            {
-                <button type="submit" class="btn btn-primary" onclick="return prepare()">Голосовать</button>
-            }
+            <button type="submit" class="btn btn-primary" onclick="return prepare()">Голосовать</button>
         }
-    </div>
+    }
+</div>
 }

@@ -64,7 +64,9 @@ namespace ScaleVoting.Controllers
                     ViewBag.Errors = messages;
                     return View(formVote);
                 }
+
                 await BcClient.SendVoteToBlockChain(vote);
+                PollDbManager.AddVotedUser(formVote.PollGuid, Cryptography.Sha256(UserName));
 
                 return Redirect("/");
             }

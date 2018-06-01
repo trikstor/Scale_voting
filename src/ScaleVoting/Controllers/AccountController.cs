@@ -41,13 +41,13 @@ namespace ScaleVoting.Controllers
             Logger.Init();
             try
             {
-                if (!UserValidator.UserIsValid(model, out var message))
+                if (!UserValidator.UserIsValid(model, ignoreEmail: true, message: out var message))
                 {
                     ModelState.AddModelError("", message);
                     return View(model);
                 }
 
-                var user = await AuthUserManager.FindAsync(model.Email,
+                var user = await AuthUserManager.FindAsync(model.UserName,
                                                            Cryptography.Sha256(
                                                                model.Password + Salt));
 
@@ -95,7 +95,7 @@ namespace ScaleVoting.Controllers
                     return View(model);
                 }
 
-                if (!UserValidator.UserIsValid(model, out var message))
+                if (!UserValidator.UserIsValid(model, ignoreEmail: false, message: out var message))
                 {
                     ModelState.AddModelError("", message);
                     return View(model);

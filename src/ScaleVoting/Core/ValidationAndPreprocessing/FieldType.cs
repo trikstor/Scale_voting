@@ -5,6 +5,7 @@
         Title,
         Content,
         Option,
+        UserName,
         Email,
         Password
     }

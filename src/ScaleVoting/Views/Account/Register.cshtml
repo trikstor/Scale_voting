@@ -5,6 +5,10 @@
 @using (Html.BeginForm())
 {    
     <div class="form-group">
+        <label>Имя пользователя</label>
+        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
         <label>Email</label>
         @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
     </div>

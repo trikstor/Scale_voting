@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using ScaleVoting.Extensions;
+using Newtonsoft.Json;
 
 namespace ScaleVoting.Domains
 {
@@ -15,6 +16,14 @@ namespace ScaleVoting.Domains
         public string TimeStamp { get; set; }
         public List<Question> Questions { get; set; }
         public IEnumerable<Vote> Votes { get; set; }
+
+        public IList<string> UsersVoted { get; set; } = new List<string>();
+        public string UsersVotedAsString
+        {
+            get => JsonConvert.SerializeObject(UsersVoted);
+            set => UsersVoted = JsonConvert.DeserializeObject<IList<string>>(value);
+        }
+
         public string Author { get; set; }
         public bool IsClosed { get; set; }
 
@@ -30,7 +39,7 @@ namespace ScaleVoting.Domains
 
         public bool HasVoted(string username)
         {
-            return Votes != null && Votes.Any(x => x.UserHash == Cryptography.Sha256(username));
+            return Votes != null && UsersVoted.Any(hash => hash == Cryptography.Sha256(username));
         }
     }
 }
