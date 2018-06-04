@@ -1,4 +1,4 @@
-﻿@{
+@{
     var stat = ViewBag.Stat;
     var poll = stat.Poll;
     ViewBag.Title = string.Format("Опрос - {0}", Html.Raw(poll.Title));
@@ -6,7 +6,7 @@
 @using ScaleVoting.Domains
 @model ScaleVoting.Models.FormVote
 @Html.ValidationSummary(false)
-
+ 
 <div id="poll-@Html.Raw(poll.Guid)" class="jumbotron justify-content-between">
     <h4 class="display-4 text-center">@poll.Title</h4>
     <hr class="my-4">
@@ -50,5 +50,5 @@
             </div>
         </div>
     }
-    <br />
+    <br/>
 </div>
